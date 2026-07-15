@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {"id": "cases.one_based", "title": "Public case numbering", "path": "know-how/case-numbering.md", "summary": "Public APIs are 1-based and translate once at the JMAG boundary."},
+    {"id": "promotion.lifecycle", "title": "Candidate lifecycle", "path": "know-how/promotion-lifecycle.md", "summary": "Only verified and approved candidates may reach stable."}
+  ]
+}

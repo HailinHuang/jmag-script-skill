@@ -1,0 +1,4 @@
+interface:
+  display_name: "JMAG Script"
+  short_description: "Build and evolve verified JMAG Python automation"
+  default_prompt: "Use $jmag-script to implement this JMAG automation request with bounded retrieval and explicit verification."

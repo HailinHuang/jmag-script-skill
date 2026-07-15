@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "library_version": "0.1.0",
+  "functions": [
+    {"id": "session.context", "status": "stable", "module": "session.py", "symbol": "JMAGContext", "summary": "Bind an explicit application, model, study and design table", "dependencies": []},
+    {"id": "results.get_value", "status": "stable", "module": "results.py", "symbol": "get_value", "summary": "Read one equation parameter or scalar response", "dependencies": ["session.context"]},
+    {"id": "results.get_values", "status": "stable", "module": "results.py", "symbol": "get_values", "summary": "Read multiple named scalar values", "dependencies": ["results.get_value"]},
+    {"id": "design_table.set_parameter", "status": "stable", "module": "design_table.py", "symbol": "set_parameter", "summary": "Set one equation parameter without hidden result deletion", "dependencies": ["session.context"]},
+    {"id": "design_table.set_parameters", "status": "stable", "module": "design_table.py", "symbol": "set_parameters", "summary": "Atomically validate and set multiple equation parameters", "dependencies": ["session.context"]},
+    {"id": "study.run_cases", "status": "stable", "module": "study.py", "symbol": "run_cases", "summary": "Run all or selected one-based cases", "dependencies": ["session.context"]}
+  ]
+}
