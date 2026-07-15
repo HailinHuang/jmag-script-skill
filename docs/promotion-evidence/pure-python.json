@@ -1,0 +1,12 @@
+{
+  "id": "promotion.lifecycle",
+  "kind": "pure-python",
+  "state": "stable",
+  "lifecycle": ["observed", "candidate", "verified", "approved", "stable"],
+  "approval_source": "User-approved implementation plan",
+  "evidence": [
+    "tests.unit.test_candidate_promotion",
+    "integration.test_cli.CliTests.test_promotion_cannot_bypass_approval_flag"
+  ],
+  "scope": "State transitions and approval enforcement only"
+}

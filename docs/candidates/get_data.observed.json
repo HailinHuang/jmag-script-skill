@@ -1,0 +1,38 @@
+{
+  "id": "observed.get_data",
+  "state": "observed",
+  "function": "get_data",
+  "signature": "get_data(objname, study, case)",
+  "source": "C:\\Codex\\jmag_operation.py",
+  "source_sha256": "9b9be4a04cac56d1dc12bf6f76859a2cec06e1c62143b2cb306e2dd09410719f",
+  "dependencies": [
+    "initialize_jmag",
+    "isinstance",
+    "len",
+    "range"
+  ],
+  "jmag_methods": [
+    "GetCurrentStudy",
+    "GetDesignTable",
+    "GetEquation",
+    "GetResponseData",
+    "GetValue",
+    "NumParameters",
+    "ParameterName",
+    "SetCurrentStudy"
+  ],
+  "help_sources": [],
+  "global_dependencies": [
+    "app",
+    "model",
+    "mstudy",
+    "result",
+    "simulation_cache"
+  ],
+  "hardcoded_paths": [],
+  "project_constants": [],
+  "test_evidence": [],
+  "run_evidence": [],
+  "jmag_versions": [],
+  "similarity": []
+}

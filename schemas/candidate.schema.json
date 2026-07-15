@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["id","state","function","source_sha256"],"properties":{"id":{"type":"string"},"state":{"enum":["observed","candidate","verified","approved","stable","rejected"]},"function":{"type":"string"},"source_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}}}

@@ -1,0 +1,18 @@
+{
+  "id": "session.context",
+  "kind": "jmag-25.1",
+  "state": "stable",
+  "lifecycle": ["observed", "candidate", "verified", "approved", "stable"],
+  "approval_source": "User-approved seed API plan",
+  "help_sources": [
+    "Designer/Application.GetCurrentModel",
+    "Designer/Application.GetCurrentStudy",
+    "Designer/Application.SetStudyAsCurrent"
+  ],
+  "evidence": [
+    "tests.unit.test_functions",
+    "tests.integration.test_jmag_real.RealJmagSmokeTests.test_hidden_application_lifecycle"
+  ],
+  "jmag_version": "25.1",
+  "scope": "Application lifecycle and wrapper availability; study-bound calls are fake-object tested"
+}

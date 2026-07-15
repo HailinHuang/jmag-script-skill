@@ -1,0 +1,41 @@
+{
+  "id": "observed.set_para",
+  "state": "observed",
+  "function": "set_para",
+  "signature": "set_para(varname, varvalue, study, case)",
+  "source": "C:\\Codex\\jmag_operation.py",
+  "source_sha256": "9b9be4a04cac56d1dc12bf6f76859a2cec06e1c62143b2cb306e2dd09410719f",
+  "dependencies": [
+    "get_data",
+    "initialize_jmag",
+    "isinstance",
+    "range",
+    "str"
+  ],
+  "jmag_methods": [
+    "ApplyCadParameters",
+    "DeleteResult",
+    "GetCurrentStudy",
+    "GetDesignTable",
+    "GetStudy",
+    "NumParameters",
+    "ParameterName",
+    "ParameterTypeName",
+    "SetCurrentStudy",
+    "SetValue"
+  ],
+  "help_sources": [],
+  "global_dependencies": [
+    "app",
+    "model",
+    "mstudy",
+    "result",
+    "simulation_cache"
+  ],
+  "hardcoded_paths": [],
+  "project_constants": [],
+  "test_evidence": [],
+  "run_evidence": [],
+  "jmag_versions": [],
+  "similarity": []
+}
