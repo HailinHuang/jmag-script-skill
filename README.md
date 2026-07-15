@@ -5,12 +5,13 @@ This repository provides bounded JMAG Help retrieval, a tested Python capability
 ## Quick start
 
 ```powershell
-python -m pip install -e .
-jmag-skill build-index
-jmag-skill search "set equation parameter"
-jmag-skill help "Study RunAllCases" --max-topics 3
-jmag-skill verify
+.\jmag-skill.cmd build-index
+.\jmag-skill.cmd search "set equation parameter"
+.\jmag-skill.cmd help "Study RunAllCases" --max-topics 3
+.\jmag-skill.cmd verify
 ```
+
+The checked-in launcher uses the JMAG 25.1 bundled Python, so no global Python installation is required.
 
 `run_cases` follows the approved initial contract and defaults to `clear_results=True`; pass `clear_results=False` when existing results must be preserved. Setters never delete results implicitly.
 
