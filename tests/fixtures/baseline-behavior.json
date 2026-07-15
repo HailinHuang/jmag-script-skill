@@ -1,0 +1,19 @@
+{
+  "phase": "RED",
+  "skill_loaded": false,
+  "runs": 5,
+  "promotion_prompt_failures": [
+    "reimplemented existing helpers without checking the seed library",
+    "treated hidden globals as reusable dependencies",
+    "could silently preserve destructive DeleteResult behavior",
+    "could promote project paths and machine constants",
+    "could infer unverified JMAG semantics from method names"
+  ],
+  "acceptance": [
+    "search stable catalog before Help",
+    "retrieve no more than three Help topics",
+    "verify JMAG methods and mark unknown semantics",
+    "keep project constants outside stable functions",
+    "require verified state and explicit user approval"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "jmag_operation.py": {"source": "C:/Codex/jmag_operation.py", "sha256": "9b9be4a04cac56d1dc12bf6f76859a2cec06e1c62143b2cb306e2dd09410719f"},
+  "jmag_study.py": {"source": "C:/Codex/jmag_study.py", "sha256": "d2c8e632ba2bc926d491fad2f3b2fa724172327cefbcbd312e49240a18cc8d31"},
+  "policy": "Sources are evidence only and are never overwritten or copied into the stable library."
+}
