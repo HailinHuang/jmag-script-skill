@@ -22,13 +22,13 @@ def run_cases(
     cases: int | Iterable[int] | None = None,
     clear_results: bool = True,
 ) -> None:
+    indexes = None if cases is None else _normalize_cases(context, cases)
     context.activate()
     if clear_results and hasattr(context.study, "DeleteResult"):
         context.study.DeleteResult()
     if cases is None:
         context.study.RunAllCases()
         return
-    indexes = _normalize_cases(context, cases)
     original = context.study.GetCurrentCase()
     try:
         for index in indexes:

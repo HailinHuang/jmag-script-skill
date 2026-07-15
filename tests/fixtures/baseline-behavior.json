@@ -1,7 +1,8 @@
 {
   "phase": "RED",
   "skill_loaded": false,
-  "runs": 5,
+  "runs": 1,
+  "evidence_status": "One independent read-only baseline audit completed; five fresh no-guidance task transcripts remain required for Phase 1 exit.",
   "promotion_prompt_failures": [
     "reimplemented existing helpers without checking the seed library",
     "treated hidden globals as reusable dependencies",

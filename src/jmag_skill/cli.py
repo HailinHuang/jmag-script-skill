@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 from .help_index import build_help_index
-from .retrieval import HelpIndex, search_catalog
+from .retrieval import HelpIndex, search_catalog, search_knowledge
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -43,7 +43,10 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     if args.command == "search":
-        _print(search_catalog(_json(REFERENCES / "function-catalog.json")["functions"], args.requirement, args.limit)); return 0
+        _print({
+            "functions": search_catalog(_json(REFERENCES / "function-catalog.json")["functions"], args.requirement, args.limit),
+            "know_how": search_knowledge(_json(REFERENCES / "knowledge-catalog.json")["entries"], args.requirement, 3),
+        }); return 0
     if args.command == "help":
         index = HelpIndex(REFERENCES / "help-index.jsonl", args.help_root)
         _print(index.extract(index.search(args.query, args.max_topics), args.max_topics)); return 0

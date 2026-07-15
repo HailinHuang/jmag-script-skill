@@ -25,6 +25,13 @@ class CandidatePromotionTests(unittest.TestCase):
         with self.assertRaises(PromotionError): promote(manifest, approved=True)
         manifest["state"] = "verified"
         with self.assertRaises(PromotionError): promote(manifest, approved=False)
+        with self.assertRaises(PromotionError): promote(manifest, approved=True)
+        manifest.update({
+            "function": "pure", "signature": "pure()", "source_sha256": "a" * 64,
+            "jmag_methods": [], "help_sources": [], "jmag_versions": [], "run_evidence": [],
+            "test_evidence": [{"phase": "RED", "passed": False}, {"phase": "GREEN", "passed": True}],
+            "target": {"id": "pure", "module": "pure.py", "symbol": "pure", "summary": "pure helper"},
+        })
         result = promote(manifest, approved=True)
         self.assertEqual(result["state"], "approved")
 

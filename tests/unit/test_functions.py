@@ -44,6 +44,7 @@ class FakeStudy:
         self.current = 1
         self.run_all = 0
         self.runs = []
+        self.deleted = 0
 
     def GetDesignTable(self): return self.table
     def GetResponseData(self, name, case): return self.responses.get((name, case), [])
@@ -51,6 +52,7 @@ class FakeStudy:
     def SetCurrentCase(self, case): self.current = case
     def Run(self): self.runs.append(self.current)
     def RunAllCases(self): self.run_all += 1
+    def DeleteResult(self): self.deleted += 1
 
 
 class FakeModel:
@@ -130,6 +132,7 @@ class FunctionTests(unittest.TestCase):
         with self.assertRaises(ValueError): get_values(self.context, ["speed", "speed"])
         with self.assertRaises(ValueError): run_cases(self.context, [])
         with self.assertRaises(ValueError): run_cases(self.context, [1, 1])
+        self.assertEqual(self.app.study.deleted, 0)
 
 
 if __name__ == "__main__":

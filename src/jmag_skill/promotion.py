@@ -33,6 +33,18 @@ def promote(manifest: dict[str, Any], *, approved: bool) -> dict[str, Any]:
         raise PromotionError("Only a verified candidate can request promotion")
     if not approved:
         raise PromotionError("Explicit user approval is required")
+    required = ("function", "signature", "source_sha256", "test_evidence", "target")
+    missing = [field for field in required if not manifest.get(field)]
+    if missing:
+        raise PromotionError(f"Verified candidate lacks required evidence: {', '.join(missing)}")
+    phases = {(item.get("phase"), item.get("passed")) for item in manifest["test_evidence"] if isinstance(item, dict)}
+    if ("RED", False) not in phases or ("GREEN", True) not in phases:
+        raise PromotionError("Verified candidate must include observed RED failure and GREEN success")
+    if manifest.get("jmag_methods"):
+        jmag_required = ("help_sources", "run_evidence", "jmag_versions")
+        absent = [field for field in jmag_required if not manifest.get(field)]
+        if absent:
+            raise PromotionError(f"JMAG candidate lacks runtime/API evidence: {', '.join(absent)}")
     return transition(manifest, "approved")
 
 

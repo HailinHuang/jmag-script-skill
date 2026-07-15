@@ -18,7 +18,7 @@ def _rank(entries: Iterable[dict[str, Any]], query: str) -> list[dict[str, Any]]
     wanted = _tokens(query)
     scored = []
     for entry in entries:
-        primary = " ".join(str(entry.get(key, "")) for key in ("id", "symbol", "method"))
+        primary = " ".join(str(entry.get(key, "")) for key in ("id", "symbol", "method", "title"))
         secondary = " ".join(str(entry.get(key, "")) for key in ("module", "class"))
         summary = str(entry.get("summary", ""))
         score = (4 * len(wanted & _tokens(primary))
@@ -31,7 +31,11 @@ def _rank(entries: Iterable[dict[str, Any]], query: str) -> list[dict[str, Any]]
 
 def search_catalog(entries: Iterable[dict[str, Any]], query: str, limit: int = 5) -> list[dict[str, Any]]:
     stable = (entry for entry in entries if entry.get("status") == "stable")
-    return _rank(stable, query)[: min(limit, 5)]
+    return _rank(stable, query)[: max(0, min(limit, 5))]
+
+
+def search_knowledge(entries: Iterable[dict[str, Any]], query: str, limit: int = 3) -> list[dict[str, Any]]:
+    return _rank(entries, query)[: max(0, min(limit, 3))]
 
 
 class HelpIndex:
@@ -45,22 +49,21 @@ class HelpIndex:
         return [json.loads(line) for line in self.index_path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
     def search(self, query: str, limit: int = 3) -> list[dict[str, Any]]:
-        return _rank(self.entries(), query)[: min(limit, 3)]
+        return _rank(self.entries(), query)[: max(0, min(limit, 3))]
 
     def extract(self, hits: Iterable[dict[str, Any]], max_topics: int = 3) -> list[dict[str, Any]]:
         sections = []
-        for hit in list(hits)[: min(max_topics, 3)]:
+        for hit in list(hits)[: max(0, min(max_topics, 3))]:
             source = (self.help_root / hit["source"]).resolve()
             if self.help_root not in source.parents or not source.is_file():
                 raise ValueError(f"Help source escapes configured root: {source}")
             raw = source.read_text(encoding="utf-8", errors="ignore")
             anchor = re.escape(str(hit["anchor"]))
-            locations = [match.start() for pattern in (rf'id=["\']{anchor}["\']', rf'href=["\']#{anchor}["\']') for match in re.finditer(pattern, raw, re.IGNORECASE)]
+            locations = [match.start() for match in re.finditer(rf'id=["\']{anchor}["\']', raw, re.IGNORECASE)]
             if not locations:
-                excerpt = raw[:3500]
-            else:
-                position = max(locations)
-                excerpt = raw[max(0, position - 200): position + 3500]
+                raise ValueError(f"Help anchor not found: {hit['source']}#{hit['anchor']}")
+            position = locations[0]
+            excerpt = raw[max(0, position - 200): position + 3500]
             text = html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", excerpt))).strip()
             sections.append({**hit, "text": text[:4000]})
         return sections

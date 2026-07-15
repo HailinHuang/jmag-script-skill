@@ -1,8 +1,8 @@
 {
   "id": "session.context",
   "kind": "jmag-25.1",
-  "state": "stable",
-  "lifecycle": ["observed", "candidate", "verified", "approved", "stable"],
+  "state": "verified",
+  "lifecycle": ["observed", "candidate", "verified"],
   "approval_source": "User-approved seed API plan",
   "help_sources": [
     "Designer/Application.GetCurrentModel",
@@ -14,5 +14,5 @@
     "tests.integration.test_jmag_real.RealJmagSmokeTests.test_hidden_application_lifecycle"
   ],
   "jmag_version": "25.1",
-  "scope": "Application lifecycle and wrapper availability; study-bound calls are fake-object tested"
+  "scope": "Application lifecycle and wrapper availability; study-bound calls are fake-object tested and cannot enter stable until a controlled real-study fixture passes"
 }

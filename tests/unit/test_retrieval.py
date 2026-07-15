@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from jmag_skill.retrieval import HelpIndex, search_catalog
+from jmag_skill.retrieval import HelpIndex, search_catalog, search_knowledge
 
 
 class RetrievalTests(unittest.TestCase):
@@ -32,6 +32,26 @@ class RetrievalTests(unittest.TestCase):
             {"id": "candidate.two", "status": "candidate", "summary": "set parameter"},
         ]
         self.assertEqual([x["id"] for x in search_catalog(entries, "parameter")], ["stable.one"])
+        self.assertEqual(search_catalog(entries * 20, "parameter", limit=-1), [])
+        know_how = [{"id": f"k{i}", "title": "parameter case", "summary": "case parameter"} for i in range(10)]
+        self.assertEqual(len(search_knowledge(know_how, "parameter case", limit=99)), 3)
+        self.assertEqual(search_knowledge(know_how, "parameter", limit=-1), [])
+
+    def test_help_limits_and_missing_anchor_fail_closed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = root / "classStudy.html"
+            source.write_text('<h2 id="run">RunAllCases</h2><p>correct</p>' + ('noise ' * 1000) + '<a href="#run">LATE</a>', encoding="utf-8")
+            index = root / "help-index.jsonl"
+            row = {"module": "Designer", "class": "Study", "method": "RunAllCases", "summary": "run", "source": source.name, "anchor": "run"}
+            index.write_text(json.dumps(row), encoding="utf-8")
+            helper = HelpIndex(index, root)
+            self.assertEqual(helper.search("run", -1), [])
+            text = helper.extract([row])[0]["text"]
+            self.assertIn("correct", text)
+            self.assertNotIn("LATE", text)
+            row["anchor"] = "missing"
+            with self.assertRaises(ValueError): helper.extract([row])
 
 
 if __name__ == "__main__": unittest.main()
