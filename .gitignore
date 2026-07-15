@@ -5,3 +5,6 @@ __pycache__/
 .venv/
 build/
 dist/
+.claude/.rem-state.json
+.claude/rules/MEMORY.md
+.claude/memory/**/_meta.json
