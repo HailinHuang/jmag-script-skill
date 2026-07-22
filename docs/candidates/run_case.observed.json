@@ -2,23 +2,23 @@
   "id": "observed.run_case",
   "state": "observed",
   "function": "run_case",
-  "signature": "run_case(study, case)",
-  "source": "C:\\Codex\\jmag_operation.py",
-  "source_sha256": "9b9be4a04cac56d1dc12bf6f76859a2cec06e1c62143b2cb306e2dd09410719f",
+  "signature": "run_case(study, case, clear_results=False)",
+  "source": "jmag_user_py\\users\\jmag_operation.py",
+  "source_sha256": "022bb2970504ee01f258d16cd55fc8d411e24f713fc3c127dacced7dd3d1292d",
   "dependencies": [
-    "initialize_jmag",
-    "isinstance"
+    "_activate_study",
+    "_normalize_cases",
+    "initialize_jmag"
   ],
   "jmag_methods": [
     "ApplyAllCasesCadParameters",
     "DeleteResult",
-    "GetModel",
+    "GetCurrentCase",
+    "GetDesignTable",
     "GetReport",
-    "GetStudy",
     "HasWarningMessage",
     "Run",
-    "RunAllCases",
-    "SetCurrentStudy"
+    "SetCurrentCase"
   ],
   "help_sources": [],
   "global_dependencies": [
@@ -30,8 +30,13 @@
   ],
   "hardcoded_paths": [],
   "project_constants": [],
-  "test_evidence": [],
+  "test_evidence": [
+    "tests.unit.test_legacy_jmag_operation.LegacyJmagOperationTests.test_leave_result_and_selected_case_execution_are_explicit",
+    "tests.unit.test_legacy_jmag_operation.LegacyJmagOperationTests.test_invalid_cases_fail_before_result_deletion_or_execution"
+  ],
   "run_evidence": [],
   "jmag_versions": [],
-  "similarity": []
+  "similarity": [
+    "study.run_cases"
+  ]
 }

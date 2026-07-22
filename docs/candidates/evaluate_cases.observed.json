@@ -1,0 +1,35 @@
+{
+  "id": "observed.evaluate_cases",
+  "state": "observed",
+  "function": "evaluate_cases",
+  "signature": "evaluate_cases(context: JMAGContext, parameter_values: Mapping[str, Any], names: Iterable[str], cases: int | Iterable[int], *, clear_results: bool)",
+  "source": "src\\jmag_functions\\orchestration.py",
+  "source_sha256": "5cb7d8289063dd112495ec190bd8905c93b6a5ca267d7b81c3db078b751584c9",
+  "dependencies": [
+    "_case_numbers",
+    "_value_names",
+    "get_values",
+    "isinstance",
+    "parameter_index",
+    "run_cases",
+    "set_parameters"
+  ],
+  "jmag_methods": [],
+  "help_sources": [],
+  "global_dependencies": [],
+  "hardcoded_paths": [],
+  "project_constants": [],
+  "test_evidence": [
+    "tests.unit.test_orchestration.OrchestrationTests.test_sets_runs_and_reads_only_requested_one_based_cases",
+    "tests.unit.test_orchestration.OrchestrationTests.test_prevalidation_prevents_partial_writes_or_runs",
+    "tests.unit.test_orchestration.OrchestrationTests.test_rejects_ambiguous_case_and_name_collections",
+    "tests.unit.test_orchestration.OrchestrationTests.test_requires_boolean_result_clearing_policy"
+  ],
+  "run_evidence": [],
+  "jmag_versions": [],
+  "similarity": [
+    "design_table.set_parameters",
+    "results.get_values",
+    "study.run_cases"
+  ]
+}

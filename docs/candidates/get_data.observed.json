@@ -3,23 +3,19 @@
   "state": "observed",
   "function": "get_data",
   "signature": "get_data(objname, study, case)",
-  "source": "C:\\Codex\\jmag_operation.py",
-  "source_sha256": "9b9be4a04cac56d1dc12bf6f76859a2cec06e1c62143b2cb306e2dd09410719f",
+  "source": "jmag_user_py\\users\\jmag_operation.py",
+  "source_sha256": "022bb2970504ee01f258d16cd55fc8d411e24f713fc3c127dacced7dd3d1292d",
   "dependencies": [
+    "_activate_study",
+    "_normalize_cases",
+    "_read_scalar",
     "initialize_jmag",
     "isinstance",
-    "len",
-    "range"
+    "sum"
   ],
   "jmag_methods": [
-    "GetCurrentStudy",
     "GetDesignTable",
-    "GetEquation",
-    "GetResponseData",
-    "GetValue",
-    "NumParameters",
-    "ParameterName",
-    "SetCurrentStudy"
+    "TypeError"
   ],
   "help_sources": [],
   "global_dependencies": [
@@ -31,8 +27,13 @@
   ],
   "hardcoded_paths": [],
   "project_constants": [],
-  "test_evidence": [],
+  "test_evidence": [
+    "tests.unit.test_legacy_jmag_operation.LegacyJmagOperationTests.test_get_data_uses_one_based_cases_and_get_datas_treats_string_as_one_name"
+  ],
   "run_evidence": [],
   "jmag_versions": [],
-  "similarity": []
+  "similarity": [
+    "results.get_value",
+    "results.get_values"
+  ]
 }

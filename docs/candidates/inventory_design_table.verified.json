@@ -1,0 +1,36 @@
+{
+  "id": "inventory.inventory_design_table",
+  "state": "verified",
+  "function": "inventory_design_table",
+  "signature": "inventory_design_table(context: JMAGContext, case: int=1)",
+  "source": "src\\jmag_functions\\inventory.py",
+  "source_sha256": "79664d20a5ef7f2e85289a65114234a324caa3890603c00d3bb60ecf69b46f0b",
+  "dependencies": ["JMAGContext"],
+  "jmag_methods": ["NumParameters", "ParameterName", "ParameterTypeName", "GetValue", "GetEquation"],
+  "help_sources": [
+    "Designer/classDesignTable.html#a40edf930ddc3adfa0b4a988281cb00a2",
+    "Designer/classDesignTable.html#a81feb1197c66560f9d348f99bd4c4684",
+    "Designer/classDesignTable.html#a561a5db8d8ef92df32c5e9e6592fa815",
+    "Designer/classDesignTable.html#a7630a70f216fa0b346fca88b3a6b77e1",
+    "Designer/classDesignTable.html#abee375451feda46b9bb1598034427632",
+    "Designer/classParametricEquation.html#a9bc4c80148b5b757acd099d40c06c54c",
+    "Designer/classParametricEquation.html#a05a166b09322c592af670ee29a2aba69",
+    "Designer/classParametricEquation.html#a83b147232116201210c41cda68debde8",
+    "Designer/classParametricEquation.html#a589920cad2894fec1417aa3293704e60",
+    "Designer/classParametricEquation.html#aed9f1ab1a10d0e2c4dc2088c9fb9e20d"
+  ],
+  "global_dependencies": [],
+  "hardcoded_paths": [],
+  "project_constants": [],
+  "test_evidence": [
+    {"phase": "RED", "passed": false, "test": "tests.unit.test_reuse_functions", "observation": "ModuleNotFoundError before inventory.py existed"},
+    {"phase": "GREEN", "passed": true, "test": "ReuseFunctionTests.test_inventory_records_all_parameters_and_equation_metadata"},
+    {"phase": "GREEN", "passed": true, "test": "ReuseFunctionTests.test_inventory_preserves_unnamed_and_broken_equation_entries"}
+  ],
+  "run_evidence": [
+    "C:/JMAG_Models/TestModel1_reuse_functions_20260715_steps12/run_report.json: enumerated 126 parameters before and after a successful solve"
+  ],
+  "jmag_versions": ["25.1"],
+  "similarity": [],
+  "target": {"module": "inventory.py", "symbol": "inventory_design_table"}
+}

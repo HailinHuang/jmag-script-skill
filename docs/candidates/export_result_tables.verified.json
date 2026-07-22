@@ -1,0 +1,25 @@
+{
+  "id": "exports.export_result_tables",
+  "state": "verified",
+  "function": "export_result_tables",
+  "signature": "export_result_tables(context: JMAGContext, path: str | Path, *, axis: str, overwrite: bool=False)",
+  "source": "src\\jmag_functions\\exports.py",
+  "source_sha256": "7ebee7910802c93d484a2d4a6375ec5e9d76b07a829de828d0976422836e4485",
+  "dependencies": ["JMAGContext"],
+  "jmag_methods": ["GetResultTable", "WriteAllCaseTables"],
+  "help_sources": [
+    "Designer/classStudy.html#a9f63a21275d043c8a4c1746dec504180",
+    "Designer/classResultTable.html#abd3fefd491e0cd8712ae688fb98cb04a"
+  ],
+  "global_dependencies": ["_RESULT_AXES", "_TABLE_SUFFIXES"],
+  "hardcoded_paths": [],
+  "project_constants": [],
+  "test_evidence": [
+    {"phase": "RED", "passed": false, "test": "tests.unit.test_reuse_functions", "observation": "ModuleNotFoundError before exports.py existed"},
+    {"phase": "GREEN", "passed": true, "test": "ReuseFunctionTests.test_exports_are_explicit_and_reject_overwrite_or_bad_axis"}
+  ],
+  "run_evidence": ["C:/JMAG_Models/TestModel1_reuse_functions_20260715_steps12/result_tables.csv: Step axis, 260 CSV lines"],
+  "jmag_versions": ["25.1"],
+  "similarity": [],
+  "target": {"module": "exports.py", "symbol": "export_result_tables"}
+}

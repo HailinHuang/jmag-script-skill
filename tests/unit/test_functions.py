@@ -34,7 +34,10 @@ class FakeTable:
     def ParameterName(self, index): return self.names[index]
     def ParameterTypeName(self, index): return self.types[index]
     def GetEquation(self, name): return self.equations[name]
-    def SetValue(self, case, parameter, value): self.writes.append((case, parameter, value))
+    def SetValue(self, case, parameter, value):
+        self.writes.append((case, parameter, value))
+        name = self.names[parameter].removeprefix("Equation parameters: ")
+        self.equations[name].values[case] = value
 
 
 class FakeStudy:
@@ -45,6 +48,7 @@ class FakeStudy:
         self.run_all = 0
         self.runs = []
         self.deleted = 0
+        self.applied = 0
 
     def GetDesignTable(self): return self.table
     def GetResponseData(self, name, case): return self.responses.get((name, case), [])
@@ -53,6 +57,7 @@ class FakeStudy:
     def Run(self): self.runs.append(self.current)
     def RunAllCases(self): self.run_all += 1
     def DeleteResult(self): self.deleted += 1
+    def ApplyAllCasesCadParameters(self): self.applied += 1
 
 
 class FakeModel:
@@ -99,8 +104,9 @@ class FunctionTests(unittest.TestCase):
         self.assertEqual(self.app.study.table.writes, [(1, 0, 2500)])
 
     def test_run_subset_and_restore_current_case(self):
-        run_cases(self.context, [1, 3])
+        run_cases(self.context, [1, 3], apply_cad_parameters=True)
         self.assertEqual(self.app.study.runs, [0, 2])
+        self.assertEqual(self.app.study.applied, 1)
         self.assertEqual(self.app.study.current, 1)
         self.assertEqual(self.app.study.run_all, 0)
         run_cases(self.context)

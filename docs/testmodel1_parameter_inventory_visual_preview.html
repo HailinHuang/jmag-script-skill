@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Testmodel1_Parameter_Inventory_Visual</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Testmodel1_Parameter_Inventory_Visual" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Testmodel1_Parameter_Inventory_Visual&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(--background) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: light-dark(rgb(255 255 255), rgb(24 24 24));
+  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+  --card: color-mix(in oklab, var(--foreground) 5%, transparent);
+  --card-foreground: var(--foreground);
+  --popover: light-dark(rgb(255 255 255), rgb(45 45 45));
+  --popover-foreground: var(--foreground);
+  --primary: light-dark(rgb(51 156 255), rgb(131 195 255));
+  --primary-foreground: light-dark(rgb(255 255 255), rgb(13 13 13));
+  --secondary: light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%));
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: light-dark(
+    rgb(26 28 31 / 49.4%),
+    rgb(255 255 255 / 49.8%)
+  );
+  --accent: light-dark(rgb(229 242 255), rgb(13 39 63));
+  --accent-foreground: var(--primary);
+  --destructive: light-dark(rgb(226 85 7), rgb(255 133 73));
+  --border: light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%));
+  --input: light-dark(
+    rgb(26 28 31 / 11.8%),
+    color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+  );
+  --ring: light-dark(rgb(51 156 255), rgb(131 195 255 / 76%));
+  --font-size-base: 14px;
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: 12.5px;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+  --color-background-primary: var(--background);
+  --color-text-primary: var(--foreground);
+  --color-border-secondary: var(--border);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--viz-font-weight-medium);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+    [aria-pressed=&quot;true&quot;],
+    [aria-selected=&quot;true&quot;],
+    .is-selected
+  ) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;section id=&quot;jmag-inventory-table&quot; aria-label=&quot;1220_RXModel / kVA / case 1&quot;&gt;
+  &lt;style&gt;
+    #jmag-inventory-table { color: var(--foreground, #1f2937); font-family: system-ui, sans-serif; }
+    #jmag-inventory-table .controls { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: .75rem; }
+    #jmag-inventory-table input, #jmag-inventory-table select { padding: .45rem .6rem; border: 1px solid var(--border, #cbd5e1); border-radius: .35rem; background: var(--background, transparent); color: inherit; }
+    #jmag-inventory-table table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    #jmag-inventory-table th, #jmag-inventory-table td { text-align: left; vertical-align: top; padding: .45rem; border-bottom: 1px solid var(--border, #cbd5e1); }
+    #jmag-inventory-table th { position: sticky; top: 0; background: var(--card, #f8fafc); }
+    #jmag-inventory-table tbody tr { cursor: pointer; }
+    #jmag-inventory-table tbody tr:hover, #jmag-inventory-table tbody tr[data-selected=&quot;true&quot;] { background: var(--accent, #e2e8f0); }
+    #jmag-inventory-table .detail { margin-top: .75rem; padding: .75rem; border: 1px solid var(--border, #cbd5e1); border-radius: .35rem; }
+    #jmag-inventory-table .muted { color: var(--muted-foreground, #64748b); }
+    #jmag-inventory-table code { white-space: pre-wrap; word-break: break-word; }
+    @media (max-width: 640px) { #jmag-inventory-table th:nth-child(4), #jmag-inventory-table td:nth-child(4) { display: none; } }
+  &lt;/style&gt;
+  &lt;div class=&quot;controls&quot;&gt;
+    &lt;label&gt;Search &lt;input id=&quot;jmag-inventory-search&quot; type=&quot;search&quot; placeholder=&quot;name, expression, purpose&quot;&gt;&lt;/label&gt;
+    &lt;label&gt;Category &lt;select id=&quot;jmag-inventory-category&quot;&gt;&lt;option value=&quot;&quot;&gt;All categories&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
+    &lt;span id=&quot;jmag-inventory-count&quot; class=&quot;muted&quot;&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;#&lt;/th&gt;&lt;th&gt;Parameter&lt;/th&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Value / expression&lt;/th&gt;&lt;th&gt;Inferred purpose&lt;/th&gt;&lt;th&gt;Relationship&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody id=&quot;jmag-inventory-rows&quot;&gt;&lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;div id=&quot;jmag-inventory-detail&quot; class=&quot;detail&quot; aria-live=&quot;polite&quot;&gt;Select a parameter to inspect its relationships.&lt;/div&gt;
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&#x27;jmag-inventory-table&#x27;);
+      const records = [{&quot;index&quot;: 0, &quot;name&quot;: &quot;CAD parameters: PMangle2@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 120, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 1, &quot;name&quot;: &quot;CAD parameters: Rri@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 30, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 2, &quot;name&quot;: &quot;CAD parameters: Rso@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 116.5, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 3, &quot;name&quot;: &quot;CAD parameters: airgap@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.8, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 4, &quot;name&quot;: &quot;CAD parameters: arcangle1@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 14, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 5, &quot;name&quot;: &quot;CAD parameters: arcangle2@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 25, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 6, &quot;name&quot;: &quot;CAD parameters: d1@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.4, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 7, &quot;name&quot;: &quot;CAD parameters: d2@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.4, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 8, &quot;name&quot;: &quot;CAD parameters: d3@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.4, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 9, &quot;name&quot;: &quot;CAD parameters: d4@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.4, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 10, &quot;name&quot;: &quot;CAD parameters: dPM1@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 2.8, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 11, &quot;name&quot;: &quot;CAD parameters: dPM2@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 2.8, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 12, &quot;name&quot;: &quot;CAD parameters: dair@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.05, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 13, &quot;name&quot;: &quot;CAD parameters: dbridge11@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.7, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 14, &quot;name&quot;: &quot;CAD parameters: dbridge12@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.7, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 15, &quot;name&quot;: &quot;CAD parameters: dbridge21@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.8, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 16, &quot;name&quot;: &quot;CAD parameters: dbridge22@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.8, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 17, &quot;name&quot;: &quot;CAD parameters: dbridge23@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.8, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 18, &quot;name&quot;: &quot;CAD parameters: dslot@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 4, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 19, &quot;name&quot;: &quot;CAD parameters: dso@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.5, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 20, &quot;name&quot;: &quot;CAD parameters: dyoke@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 19, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 21, &quot;name&quot;: &quot;CAD parameters: hcore1@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 6, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 22, &quot;name&quot;: &quot;CAD parameters: hcore2@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 8, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 23, &quot;name&quot;: &quot;CAD parameters: hslot@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 16, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 24, &quot;name&quot;: &quot;CAD parameters: hso@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 1, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 25, &quot;name&quot;: &quot;CAD parameters: hwedge@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 1.2, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 26, &quot;name&quot;: &quot;CAD parameters: lPM1@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 6, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 27, &quot;name&quot;: &quot;CAD parameters: lPM21@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 5, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 28, &quot;name&quot;: &quot;CAD parameters: lPM22@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 6.5, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 29, &quot;name&quot;: &quot;CAD parameters: lPMslot21@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 8, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 30, &quot;name&quot;: &quot;CAD parameters: lPMslot22@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 16, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 31, &quot;name&quot;: &quot;CAD parameters: lbridge11@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 2.5, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 32, &quot;name&quot;: &quot;CAD parameters: lbridge12@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 2.4, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 33, &quot;name&quot;: &quot;CAD parameters: lbridge21@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 2.7, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 34, &quot;name&quot;: &quot;CAD parameters: lbridge22@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 1.1, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 35, &quot;name&quot;: &quot;CAD parameters: lbridge23@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 2.8, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 36, &quot;name&quot;: &quot;CAD parameters: r0@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.5, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 37, &quot;name&quot;: &quot;CAD parameters: r1@Variables&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 0.2, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;geometry&quot;, &quot;summary&quot;: &quot;CAD geometry input synchronized through the Design Table.&quot;}}, {&quot;index&quot;: 38, &quot;name&quot;: &quot;Equation parameters: Rso&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;116.5&quot;, &quot;equation_name&quot;: &quot;Rso&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;116.5&quot;, &quot;evaluated_value&quot;: 116.5, &quot;equation&quot;: {&quot;name&quot;: &quot;Rso&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;116.5&quot;, &quot;evaluated_value&quot;: 116.5}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Area_Slot&quot;, &quot;End_Winding_Height&quot;, &quot;End_Winding_Length&quot;, &quot;Rsi&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 39, &quot;name&quot;: &quot;Equation parameters: Ri&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;30&quot;, &quot;equation_name&quot;: &quot;Ri&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;30&quot;, &quot;evaluated_value&quot;: 30, &quot;equation&quot;: {&quot;name&quot;: &quot;Ri&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;30&quot;, &quot;evaluated_value&quot;: 30}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 40, &quot;name&quot;: &quot;Equation parameters: d1&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.4&quot;, &quot;equation_name&quot;: &quot;d1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.4&quot;, &quot;evaluated_value&quot;: 0.4, &quot;equation&quot;: {&quot;name&quot;: &quot;d1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.4&quot;, &quot;evaluated_value&quot;: 0.4}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;End_Winding_Height&quot;, &quot;End_Winding_Length&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 41, &quot;name&quot;: &quot;Equation parameters: d2&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.4&quot;, &quot;equation_name&quot;: &quot;d2&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.4&quot;, &quot;evaluated_value&quot;: 0.4, &quot;equation&quot;: {&quot;name&quot;: &quot;d2&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.4&quot;, &quot;evaluated_value&quot;: 0.4}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 42, &quot;name&quot;: &quot;Equation parameters: d3&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.4&quot;, &quot;equation_name&quot;: &quot;d3&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.4&quot;, &quot;evaluated_value&quot;: 0.4, &quot;equation&quot;: {&quot;name&quot;: &quot;d3&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.4&quot;, &quot;evaluated_value&quot;: 0.4}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;End_Winding_Height&quot;, &quot;End_Winding_Length&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 43, &quot;name&quot;: &quot;Equation parameters: d4&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.4&quot;, &quot;equation_name&quot;: &quot;d4&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.4&quot;, &quot;evaluated_value&quot;: 0.4, &quot;equation&quot;: {&quot;name&quot;: &quot;d4&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.4&quot;, &quot;evaluated_value&quot;: 0.4}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 44, &quot;name&quot;: &quot;Equation parameters: dair&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.05&quot;, &quot;equation_name&quot;: &quot;dair&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.05&quot;, &quot;evaluated_value&quot;: 0.05, &quot;equation&quot;: {&quot;name&quot;: &quot;dair&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.05&quot;, &quot;evaluated_value&quot;: 0.05}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 45, &quot;name&quot;: &quot;Equation parameters: dbridge11&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.7&quot;, &quot;equation_name&quot;: &quot;dbridge11&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.7&quot;, &quot;evaluated_value&quot;: 0.7, &quot;equation&quot;: {&quot;name&quot;: &quot;dbridge11&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.7&quot;, &quot;evaluated_value&quot;: 0.7}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 46, &quot;name&quot;: &quot;Equation parameters: dPM2&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;2.8&quot;, &quot;equation_name&quot;: &quot;dPM2&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.8&quot;, &quot;evaluated_value&quot;: 2.8, &quot;equation&quot;: {&quot;name&quot;: &quot;dPM2&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.8&quot;, &quot;evaluated_value&quot;: 2.8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 47, &quot;name&quot;: &quot;Equation parameters: dbridge21&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.8&quot;, &quot;equation_name&quot;: &quot;dbridge21&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.8&quot;, &quot;evaluated_value&quot;: 0.8, &quot;equation&quot;: {&quot;name&quot;: &quot;dbridge21&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.8&quot;, &quot;evaluated_value&quot;: 0.8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 48, &quot;name&quot;: &quot;Equation parameters: dbridge12&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.7&quot;, &quot;equation_name&quot;: &quot;dbridge12&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.7&quot;, &quot;evaluated_value&quot;: 0.7, &quot;equation&quot;: {&quot;name&quot;: &quot;dbridge12&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.7&quot;, &quot;evaluated_value&quot;: 0.7}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 49, &quot;name&quot;: &quot;Equation parameters: dbridge22&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.8&quot;, &quot;equation_name&quot;: &quot;dbridge22&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.8&quot;, &quot;evaluated_value&quot;: 0.8, &quot;equation&quot;: {&quot;name&quot;: &quot;dbridge22&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.8&quot;, &quot;evaluated_value&quot;: 0.8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 50, &quot;name&quot;: &quot;Equation parameters: dbridge23&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.8&quot;, &quot;equation_name&quot;: &quot;dbridge23&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.8&quot;, &quot;evaluated_value&quot;: 0.8, &quot;equation&quot;: {&quot;name&quot;: &quot;dbridge23&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.8&quot;, &quot;evaluated_value&quot;: 0.8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 51, &quot;name&quot;: &quot;Equation parameters: dso&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.5&quot;, &quot;equation_name&quot;: &quot;dso&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.5&quot;, &quot;evaluated_value&quot;: 0.5, &quot;equation&quot;: {&quot;name&quot;: &quot;dso&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.5&quot;, &quot;evaluated_value&quot;: 0.5}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Area_Slot&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 52, &quot;name&quot;: &quot;Equation parameters: hcore1&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;6&quot;, &quot;equation_name&quot;: &quot;hcore1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;6&quot;, &quot;evaluated_value&quot;: 6, &quot;equation&quot;: {&quot;name&quot;: &quot;hcore1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;6&quot;, &quot;evaluated_value&quot;: 6}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 53, &quot;name&quot;: &quot;Equation parameters: hcore2&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;8&quot;, &quot;equation_name&quot;: &quot;hcore2&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;8&quot;, &quot;evaluated_value&quot;: 8, &quot;equation&quot;: {&quot;name&quot;: &quot;hcore2&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;8&quot;, &quot;evaluated_value&quot;: 8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 54, &quot;name&quot;: &quot;Equation parameters: hso&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;1&quot;, &quot;equation_name&quot;: &quot;hso&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1&quot;, &quot;evaluated_value&quot;: 1, &quot;equation&quot;: {&quot;name&quot;: &quot;hso&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1&quot;, &quot;evaluated_value&quot;: 1}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Area_Slot&quot;, &quot;Rsi&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 55, &quot;name&quot;: &quot;Equation parameters: hwedge&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;1.2&quot;, &quot;equation_name&quot;: &quot;hwedge&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1.2&quot;, &quot;evaluated_value&quot;: 1.2, &quot;equation&quot;: {&quot;name&quot;: &quot;hwedge&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1.2&quot;, &quot;evaluated_value&quot;: 1.2}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Rsi&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 56, &quot;name&quot;: &quot;Equation parameters: lPMslot21&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;8&quot;, &quot;equation_name&quot;: &quot;lPMslot21&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;8&quot;, &quot;evaluated_value&quot;: 8, &quot;equation&quot;: {&quot;name&quot;: &quot;lPMslot21&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;8&quot;, &quot;evaluated_value&quot;: 8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 57, &quot;name&quot;: &quot;Equation parameters: lbridge12&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;2.4&quot;, &quot;equation_name&quot;: &quot;lbridge12&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.4&quot;, &quot;evaluated_value&quot;: 2.4, &quot;equation&quot;: {&quot;name&quot;: &quot;lbridge12&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.4&quot;, &quot;evaluated_value&quot;: 2.4}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 58, &quot;name&quot;: &quot;Equation parameters: lbridge11&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;2.5&quot;, &quot;equation_name&quot;: &quot;lbridge11&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.5&quot;, &quot;evaluated_value&quot;: 2.5, &quot;equation&quot;: {&quot;name&quot;: &quot;lbridge11&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.5&quot;, &quot;evaluated_value&quot;: 2.5}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 59, &quot;name&quot;: &quot;Equation parameters: lbridge21&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;2.7&quot;, &quot;equation_name&quot;: &quot;lbridge21&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.7&quot;, &quot;evaluated_value&quot;: 2.7, &quot;equation&quot;: {&quot;name&quot;: &quot;lbridge21&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.7&quot;, &quot;evaluated_value&quot;: 2.7}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 60, &quot;name&quot;: &quot;Equation parameters: lbridge22&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;1.1&quot;, &quot;equation_name&quot;: &quot;lbridge22&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1.1&quot;, &quot;evaluated_value&quot;: 1.1, &quot;equation&quot;: {&quot;name&quot;: &quot;lbridge22&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1.1&quot;, &quot;evaluated_value&quot;: 1.1}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 61, &quot;name&quot;: &quot;Equation parameters: lbridge23&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;2.8&quot;, &quot;equation_name&quot;: &quot;lbridge23&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.8&quot;, &quot;evaluated_value&quot;: 2.8, &quot;equation&quot;: {&quot;name&quot;: &quot;lbridge23&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.8&quot;, &quot;evaluated_value&quot;: 2.8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 62, &quot;name&quot;: &quot;Equation parameters: r0&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.5&quot;, &quot;equation_name&quot;: &quot;r0&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.5&quot;, &quot;evaluated_value&quot;: 0.5, &quot;equation&quot;: {&quot;name&quot;: &quot;r0&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.5&quot;, &quot;evaluated_value&quot;: 0.5}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 63, &quot;name&quot;: &quot;Equation parameters: r1&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.2&quot;, &quot;equation_name&quot;: &quot;r1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.2&quot;, &quot;evaluated_value&quot;: 0.2, &quot;equation&quot;: {&quot;name&quot;: &quot;r1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.2&quot;, &quot;evaluated_value&quot;: 0.2}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 64, &quot;name&quot;: &quot;Study Properties: ModelThickness&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 160, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;input&quot;, &quot;summary&quot;: &quot;Direct Design Table input or study property.&quot;}}, {&quot;index&quot;: 65, &quot;name&quot;: &quot;Study Properties: Step&quot;, &quot;type&quot;: &quot;Flag&quot;, &quot;value&quot;: 91, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;simulation&quot;, &quot;summary&quot;: &quot;Simulation/discretization control or derived step quantity.&quot;}}, {&quot;index&quot;: 66, &quot;name&quot;: &quot;Study Properties: StepDivision&quot;, &quot;type&quot;: &quot;Flag&quot;, &quot;value&quot;: 60, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;simulation&quot;, &quot;summary&quot;: &quot;Simulation/discretization control or derived step quantity.&quot;}}, {&quot;index&quot;: 67, &quot;name&quot;: &quot;CS1 (3PhaseCurrentSource): PhaseU&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 71.5, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 68, &quot;name&quot;: &quot;Equation parameters: lPMslot22&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;16&quot;, &quot;equation_name&quot;: &quot;lPMslot22&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;16&quot;, &quot;evaluated_value&quot;: 16, &quot;equation&quot;: {&quot;name&quot;: &quot;lPMslot22&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;16&quot;, &quot;evaluated_value&quot;: 16}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 69, &quot;name&quot;: &quot;Equation parameters: Vline_limit&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;1046.96&quot;, &quot;equation_name&quot;: &quot;Vline_limit&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1046.96&quot;, &quot;evaluated_value&quot;: 1046.96, &quot;equation&quot;: {&quot;name&quot;: &quot;Vline_limit&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1046.96&quot;, &quot;evaluated_value&quot;: 1046.96}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 70, &quot;name&quot;: &quot;Equation parameters: Initial_Position&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;2.5*360/54-180/12&quot;, &quot;equation_name&quot;: &quot;Initial_Position&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.5*360/54-180/12&quot;, &quot;evaluated_value&quot;: 1.6666666666666679, &quot;equation&quot;: {&quot;name&quot;: &quot;Initial_Position&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.5*360/54-180/12&quot;, &quot;evaluated_value&quot;: 1.6666666666666679}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 71, &quot;name&quot;: &quot;roate (RotationMotion2D): InitialRotationAngle&quot;, &quot;type&quot;: &quot;Real&quot;, &quot;value&quot;: 1.6666666666666679, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;input&quot;, &quot;summary&quot;: &quot;Direct Design Table input or study property.&quot;}}, {&quot;index&quot;: 72, &quot;name&quot;: &quot;Equation parameters: J_limit&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;40&quot;, &quot;equation_name&quot;: &quot;J_limit&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;40&quot;, &quot;evaluated_value&quot;: 40, &quot;equation&quot;: {&quot;name&quot;: &quot;J_limit&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;40&quot;, &quot;evaluated_value&quot;: 40}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Irms_limit&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;performance&quot;, &quot;summary&quot;: &quot;Derived performance, constraint, or objective quantity.&quot;}}, {&quot;index&quot;: 73, &quot;name&quot;: &quot;Equation parameters: ab&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;2&quot;, &quot;equation_name&quot;: &quot;ab&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2&quot;, &quot;evaluated_value&quot;: 2, &quot;equation&quot;: {&quot;name&quot;: &quot;ab&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2&quot;, &quot;evaluated_value&quot;: 2}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;DC_Copper_Lossef&quot;, &quot;DC_Copper_Lossend&quot;, &quot;Irms_limit&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 74, &quot;name&quot;: &quot;Equation parameters: fre&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;speed*Poles/2/60&quot;, &quot;equation_name&quot;: &quot;fre&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;speed*Poles/2/60&quot;, &quot;evaluated_value&quot;: 1800, &quot;equation&quot;: {&quot;name&quot;: &quot;fre&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;speed*Poles/2/60&quot;, &quot;evaluated_value&quot;: 1800}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Poles&quot;, &quot;speed&quot;], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 75, &quot;name&quot;: &quot;Equation parameters: Poles&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;12&quot;, &quot;equation_name&quot;: &quot;Poles&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;12&quot;, &quot;evaluated_value&quot;: 12, &quot;equation&quot;: {&quot;name&quot;: &quot;Poles&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;12&quot;, &quot;evaluated_value&quot;: 12}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;fre&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 76, &quot;name&quot;: &quot;Equation parameters: Phase_Advance&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;71.5&quot;, &quot;equation_name&quot;: &quot;Phase_Advance&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;71.5&quot;, &quot;evaluated_value&quot;: 71.5, &quot;equation&quot;: {&quot;name&quot;: &quot;Phase_Advance&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;71.5&quot;, &quot;evaluated_value&quot;: 71.5}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 77, &quot;name&quot;: &quot;Equation parameters: Copper_Resistivity&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;2.34218e-8&quot;, &quot;equation_name&quot;: &quot;Copper_Resistivity&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.34218e-8&quot;, &quot;evaluated_value&quot;: 2.34218e-08, &quot;equation&quot;: {&quot;name&quot;: &quot;Copper_Resistivity&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.34218e-8&quot;, &quot;evaluated_value&quot;: 2.34218e-08}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;material&quot;, &quot;summary&quot;: &quot;Material or temperature-dependent property.&quot;}}, {&quot;index&quot;: 78, &quot;name&quot;: &quot;Equation parameters: Conductor_Layer&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;8&quot;, &quot;equation_name&quot;: &quot;Conductor_Layer&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;8&quot;, &quot;evaluated_value&quot;: 8, &quot;equation&quot;: {&quot;name&quot;: &quot;Conductor_Layer&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;8&quot;, &quot;evaluated_value&quot;: 8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Slot_Fill_Factor&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 79, &quot;name&quot;: &quot;Equation parameters: speed&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;18000&quot;, &quot;equation_name&quot;: &quot;speed&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;18000&quot;, &quot;evaluated_value&quot;: 18000, &quot;equation&quot;: {&quot;name&quot;: &quot;speed&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;18000&quot;, &quot;evaluated_value&quot;: 18000}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;fre&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 80, &quot;name&quot;: &quot;Equation parameters: Magnet_Conductivity&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;62500000&quot;, &quot;equation_name&quot;: &quot;Magnet_Conductivity&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;62500000&quot;, &quot;evaluated_value&quot;: 62500000, &quot;equation&quot;: {&quot;name&quot;: &quot;Magnet_Conductivity&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;62500000&quot;, &quot;evaluated_value&quot;: 62500000}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;material&quot;, &quot;summary&quot;: &quot;Material or temperature-dependent property.&quot;}}, {&quot;index&quot;: 81, &quot;name&quot;: &quot;Equation parameters: dPM1&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;2.8&quot;, &quot;equation_name&quot;: &quot;dPM1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.8&quot;, &quot;evaluated_value&quot;: 2.8, &quot;equation&quot;: {&quot;name&quot;: &quot;dPM1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.8&quot;, &quot;evaluated_value&quot;: 2.8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 82, &quot;name&quot;: &quot;Equation parameters: dslot&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;4&quot;, &quot;equation_name&quot;: &quot;dslot&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;4&quot;, &quot;evaluated_value&quot;: 4, &quot;equation&quot;: {&quot;name&quot;: &quot;dslot&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;4&quot;, &quot;evaluated_value&quot;: 4}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 83, &quot;name&quot;: &quot;Equation parameters: dyoke&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;19&quot;, &quot;equation_name&quot;: &quot;dyoke&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;19&quot;, &quot;evaluated_value&quot;: 19, &quot;equation&quot;: {&quot;name&quot;: &quot;dyoke&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;19&quot;, &quot;evaluated_value&quot;: 19}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;End_Winding_Height&quot;, &quot;End_Winding_Length&quot;, &quot;Rsi&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 84, &quot;name&quot;: &quot;Equation parameters: hslot&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;16&quot;, &quot;equation_name&quot;: &quot;hslot&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;16&quot;, &quot;evaluated_value&quot;: 16, &quot;equation&quot;: {&quot;name&quot;: &quot;hslot&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;16&quot;, &quot;evaluated_value&quot;: 16}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;End_Winding_Height&quot;, &quot;End_Winding_Length&quot;, &quot;Rsi&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 85, &quot;name&quot;: &quot;Equation parameters: airgap&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.8&quot;, &quot;equation_name&quot;: &quot;airgap&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.8&quot;, &quot;evaluated_value&quot;: 0.8, &quot;equation&quot;: {&quot;name&quot;: &quot;airgap&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.8&quot;, &quot;evaluated_value&quot;: 0.8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 86, &quot;name&quot;: &quot;Equation parameters: arcangle2&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;25&quot;, &quot;equation_name&quot;: &quot;arcangle2&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;25&quot;, &quot;evaluated_value&quot;: 25, &quot;equation&quot;: {&quot;name&quot;: &quot;arcangle2&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;25&quot;, &quot;evaluated_value&quot;: 25}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 87, &quot;name&quot;: &quot;Equation parameters: arcangle1&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;14&quot;, &quot;equation_name&quot;: &quot;arcangle1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;14&quot;, &quot;evaluated_value&quot;: 14, &quot;equation&quot;: {&quot;name&quot;: &quot;arcangle1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;14&quot;, &quot;evaluated_value&quot;: 14}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 88, &quot;name&quot;: &quot;Equation parameters: PMangle2&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;120&quot;, &quot;equation_name&quot;: &quot;PMangle2&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;120&quot;, &quot;evaluated_value&quot;: 120, &quot;equation&quot;: {&quot;name&quot;: &quot;PMangle2&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;120&quot;, &quot;evaluated_value&quot;: 120}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 89, &quot;name&quot;: &quot;Equation parameters: lPM1&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;6&quot;, &quot;equation_name&quot;: &quot;lPM1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;6&quot;, &quot;evaluated_value&quot;: 6, &quot;equation&quot;: {&quot;name&quot;: &quot;lPM1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;6&quot;, &quot;evaluated_value&quot;: 6}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 90, &quot;name&quot;: &quot;Equation parameters: lPM22&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;6.5&quot;, &quot;equation_name&quot;: &quot;lPM22&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;6.5&quot;, &quot;evaluated_value&quot;: 6.5, &quot;equation&quot;: {&quot;name&quot;: &quot;lPM22&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;6.5&quot;, &quot;evaluated_value&quot;: 6.5}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 91, &quot;name&quot;: &quot;Equation parameters: lPM21&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;5&quot;, &quot;equation_name&quot;: &quot;lPM21&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;5&quot;, &quot;evaluated_value&quot;: 5, &quot;equation&quot;: {&quot;name&quot;: &quot;lPM21&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;5&quot;, &quot;evaluated_value&quot;: 5}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 92, &quot;name&quot;: &quot;Equation parameters: CoilEnd&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0&quot;, &quot;equation_name&quot;: &quot;CoilEnd&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0&quot;, &quot;evaluated_value&quot;: 0, &quot;equation&quot;: {&quot;name&quot;: &quot;CoilEnd&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0&quot;, &quot;evaluated_value&quot;: 0}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 93, &quot;name&quot;: &quot;Equation parameters: Torque_Required&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;400&quot;, &quot;equation_name&quot;: &quot;Torque_Required&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;400&quot;, &quot;evaluated_value&quot;: 400, &quot;equation&quot;: {&quot;name&quot;: &quot;Torque_Required&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;400&quot;, &quot;evaluated_value&quot;: 400}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 94, &quot;name&quot;: &quot;Equation parameters: Stack_Length&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;160&quot;, &quot;equation_name&quot;: &quot;Stack_Length&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;160&quot;, &quot;evaluated_value&quot;: 160, &quot;equation&quot;: {&quot;name&quot;: &quot;Stack_Length&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;160&quot;, &quot;evaluated_value&quot;: 160}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;DC_Copper_Lossef&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 95, &quot;name&quot;: &quot;Equation parameters: poles&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;12&quot;, &quot;equation_name&quot;: &quot;poles&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;12&quot;, &quot;evaluated_value&quot;: 12, &quot;equation&quot;: {&quot;name&quot;: &quot;poles&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;12&quot;, &quot;evaluated_value&quot;: 12}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;End_Winding_Height&quot;, &quot;End_Winding_Length&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 96, &quot;name&quot;: &quot;Equation parameters: Conductor_Layers&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;8&quot;, &quot;equation_name&quot;: &quot;Conductor_Layers&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;8&quot;, &quot;evaluated_value&quot;: 8, &quot;equation&quot;: {&quot;name&quot;: &quot;Conductor_Layers&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;8&quot;, &quot;evaluated_value&quot;: 8}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;DC_Copper_Lossef&quot;, &quot;DC_Copper_Lossend&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 97, &quot;name&quot;: &quot;Equation parameters: Slot_Number&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;54&quot;, &quot;equation_name&quot;: &quot;Slot_Number&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;54&quot;, &quot;evaluated_value&quot;: 54, &quot;equation&quot;: {&quot;name&quot;: &quot;Slot_Number&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;54&quot;, &quot;evaluated_value&quot;: 54}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;DC_Copper_Lossef&quot;, &quot;DC_Copper_Lossend&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 98, &quot;name&quot;: &quot;Equation parameters: Tem_Magnets&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;80&quot;, &quot;equation_name&quot;: &quot;Tem_Magnets&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;80&quot;, &quot;evaluated_value&quot;: 80, &quot;equation&quot;: {&quot;name&quot;: &quot;Tem_Magnets&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;80&quot;, &quot;evaluated_value&quot;: 80}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;material&quot;, &quot;summary&quot;: &quot;Material or temperature-dependent property.&quot;}}, {&quot;index&quot;: 99, &quot;name&quot;: &quot;Equation parameters: Tem_End_Winding&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;100&quot;, &quot;equation_name&quot;: &quot;Tem_End_Winding&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;100&quot;, &quot;evaluated_value&quot;: 100, &quot;equation&quot;: {&quot;name&quot;: &quot;Tem_End_Winding&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;100&quot;, &quot;evaluated_value&quot;: 100}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Curesistivity_End&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;material&quot;, &quot;summary&quot;: &quot;Material or temperature-dependent property.&quot;}}, {&quot;index&quot;: 100, &quot;name&quot;: &quot;Equation parameters: DC_Copper_Lossef&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;Irms*Irms/ab/ab/Area_Conductor*Slot_Number*Conductor_Layers*Stack_Length*Curesistivity_Eff*1000&quot;, &quot;equation_name&quot;: &quot;DC_Copper_Lossef&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;Irms*Irms/ab/ab/Area_Conductor*Slot_Number*Conductor_Layers*Stack_Length*Curesistivity_Eff*1000&quot;, &quot;evaluated_value&quot;: 1050.8427859952394, &quot;equation&quot;: {&quot;name&quot;: &quot;DC_Copper_Lossef&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;Irms*Irms/ab/ab/Area_Conductor*Slot_Number*Conductor_Layers*Stack_Length*Curesistivity_Eff*1000&quot;, &quot;evaluated_value&quot;: 1050.8427859952394}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Conductor_Layers&quot;, &quot;Curesistivity_Eff&quot;, &quot;Irms&quot;, &quot;Slot_Number&quot;, &quot;Stack_Length&quot;, &quot;ab&quot;], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 101, &quot;name&quot;: &quot;Equation parameters: End_Winding_Length&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;10+(Rso-dyoke-hslot/2-d1+d3)*2*pi/poles*sqrt(2)&quot;, &quot;equation_name&quot;: &quot;End_Winding_Length&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;10+(Rso-dyoke-hslot/2-d1+d3)*2*pi/poles*sqrt(2)&quot;, &quot;evaluated_value&quot;: 76.27300382752897, &quot;equation&quot;: {&quot;name&quot;: &quot;End_Winding_Length&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;10+(Rso-dyoke-hslot/2-d1+d3)*2*pi/poles*sqrt(2)&quot;, &quot;evaluated_value&quot;: 76.27300382752897}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Rso&quot;, &quot;d1&quot;, &quot;d3&quot;, &quot;dyoke&quot;, &quot;hslot&quot;, &quot;poles&quot;], &quot;dependents&quot;: [&quot;DC_Copper_Lossend&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 102, &quot;name&quot;: &quot;Equation parameters: DC_Copper_Lossend&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;Irms*Irms/ab/ab/Area_Conductor*Slot_Number*Conductor_Layers*End_Winding_Length*Curesistivity_End*1000&quot;, &quot;equation_name&quot;: &quot;DC_Copper_Lossend&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;Irms*Irms/ab/ab/Area_Conductor*Slot_Number*Conductor_Layers*End_Winding_Length*Curesistivity_End*1000&quot;, &quot;evaluated_value&quot;: 500.9433489896631, &quot;equation&quot;: {&quot;name&quot;: &quot;DC_Copper_Lossend&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;Irms*Irms/ab/ab/Area_Conductor*Slot_Number*Conductor_Layers*End_Winding_Length*Curesistivity_End*1000&quot;, &quot;evaluated_value&quot;: 500.9433489896631}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Conductor_Layers&quot;, &quot;Curesistivity_End&quot;, &quot;End_Winding_Length&quot;, &quot;Irms&quot;, &quot;Slot_Number&quot;, &quot;ab&quot;], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 103, &quot;name&quot;: &quot;Equation parameters: End_Winding_Height&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;5+(Rso-dyoke-hslot/2-d1+d3)*pi/poles&quot;, &quot;equation_name&quot;: &quot;End_Winding_Height&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;5+(Rso-dyoke-hslot/2-d1+d3)*pi/poles&quot;, &quot;evaluated_value&quot;: 28.431045208023875, &quot;equation&quot;: {&quot;name&quot;: &quot;End_Winding_Height&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;5+(Rso-dyoke-hslot/2-d1+d3)*pi/poles&quot;, &quot;evaluated_value&quot;: 28.431045208023875}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Rso&quot;, &quot;d1&quot;, &quot;d3&quot;, &quot;dyoke&quot;, &quot;hslot&quot;, &quot;poles&quot;], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 104, &quot;name&quot;: &quot;Equation parameters: Cu_Tem_Cof&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0.0039&quot;, &quot;equation_name&quot;: &quot;Cu_Tem_Cof&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.0039&quot;, &quot;evaluated_value&quot;: 0.0039, &quot;equation&quot;: {&quot;name&quot;: &quot;Cu_Tem_Cof&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0.0039&quot;, &quot;evaluated_value&quot;: 0.0039}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Curesistivity_Eff&quot;, &quot;Curesistivity_End&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;material&quot;, &quot;summary&quot;: &quot;Material or temperature-dependent property.&quot;}}, {&quot;index&quot;: 105, &quot;name&quot;: &quot;Equation parameters: Magnet_Tem_Cof&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;-0.002&quot;, &quot;equation_name&quot;: &quot;Magnet_Tem_Cof&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;-0.002&quot;, &quot;evaluated_value&quot;: -0.002, &quot;equation&quot;: {&quot;name&quot;: &quot;Magnet_Tem_Cof&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;-0.002&quot;, &quot;evaluated_value&quot;: -0.002}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;material&quot;, &quot;summary&quot;: &quot;Material or temperature-dependent property.&quot;}}, {&quot;index&quot;: 106, &quot;name&quot;: &quot;Equation parameters: Rsi&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;Rso-dyoke-hslot-hso-hwedge&quot;, &quot;equation_name&quot;: &quot;Rsi&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;Rso-dyoke-hslot-hso-hwedge&quot;, &quot;evaluated_value&quot;: 79.3, &quot;equation&quot;: {&quot;name&quot;: &quot;Rsi&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;Rso-dyoke-hslot-hso-hwedge&quot;, &quot;evaluated_value&quot;: 79.3}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Rso&quot;, &quot;dyoke&quot;, &quot;hslot&quot;, &quot;hso&quot;, &quot;hwedge&quot;], &quot;dependents&quot;: [&quot;Area_Slot&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 107, &quot;name&quot;: &quot;Equation parameters: Area_Slot&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;((Rso*Rso-Rsi*Rsi)*pi/6-Area_StatorIron)/9-hso*dso&quot;, &quot;equation_name&quot;: &quot;Area_Slot&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;((Rso*Rso-Rsi*Rsi)*pi/6-Area_StatorIron)/9-hso*dso&quot;, &quot;evaluated_value&quot;: 66.5807786582379, &quot;equation&quot;: {&quot;name&quot;: &quot;Area_Slot&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;((Rso*Rso-Rsi*Rsi)*pi/6-Area_StatorIron)/9-hso*dso&quot;, &quot;evaluated_value&quot;: 66.5807786582379}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Rsi&quot;, &quot;Rso&quot;, &quot;dso&quot;, &quot;hso&quot;], &quot;dependents&quot;: [&quot;Slot_Fill_Factor&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;performance&quot;, &quot;summary&quot;: &quot;Derived performance, constraint, or objective quantity.&quot;}}, {&quot;index&quot;: 108, &quot;name&quot;: &quot;Equation parameters: Slot_Fill_Factor&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;Area_Conductor*Conductor_Layer/Area_Slot&quot;, &quot;equation_name&quot;: &quot;Slot_Fill_Factor&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;Area_Conductor*Conductor_Layer/Area_Slot&quot;, &quot;evaluated_value&quot;: 0.5701823621670908, &quot;equation&quot;: {&quot;name&quot;: &quot;Slot_Fill_Factor&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;Area_Conductor*Conductor_Layer/Area_Slot&quot;, &quot;evaluated_value&quot;: 0.5701823621670908}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Area_Slot&quot;, &quot;Conductor_Layer&quot;], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;performance&quot;, &quot;summary&quot;: &quot;Derived performance, constraint, or objective quantity.&quot;}}, {&quot;index&quot;: 109, &quot;name&quot;: &quot;Equation parameters: Irms_limit&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;J_limit*Area_Conductor*ab&quot;, &quot;equation_name&quot;: &quot;Irms_limit&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;J_limit*Area_Conductor*ab&quot;, &quot;evaluated_value&quot;: 379.6318565027832, &quot;equation&quot;: {&quot;name&quot;: &quot;Irms_limit&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;J_limit*Area_Conductor*ab&quot;, &quot;evaluated_value&quot;: 379.6318565027832}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;J_limit&quot;, &quot;ab&quot;], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 110, &quot;name&quot;: &quot;Equation parameters: ProcessNo&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;3&quot;, &quot;equation_name&quot;: &quot;ProcessNo&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;3&quot;, &quot;evaluated_value&quot;: 3, &quot;equation&quot;: {&quot;name&quot;: &quot;ProcessNo&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;3&quot;, &quot;evaluated_value&quot;: 3}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 111, &quot;name&quot;: &quot;Equation parameters: margin_ratio&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;1.05&quot;, &quot;equation_name&quot;: &quot;margin_ratio&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1.05&quot;, &quot;evaluated_value&quot;: 1.05, &quot;equation&quot;: {&quot;name&quot;: &quot;margin_ratio&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1.05&quot;, &quot;evaluated_value&quot;: 1.05}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;performance&quot;, &quot;summary&quot;: &quot;Derived performance, constraint, or objective quantity.&quot;}}, {&quot;index&quot;: 112, &quot;name&quot;: &quot;Equation parameters: Phase0&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;48.1&quot;, &quot;equation_name&quot;: &quot;Phase0&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;48.1&quot;, &quot;evaluated_value&quot;: 48.1, &quot;equation&quot;: {&quot;name&quot;: &quot;Phase0&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;48.1&quot;, &quot;evaluated_value&quot;: 48.1}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 113, &quot;name&quot;: &quot;Equation parameters: Irms&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;111&quot;, &quot;equation_name&quot;: &quot;Irms&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;111&quot;, &quot;evaluated_value&quot;: 111, &quot;equation&quot;: {&quot;name&quot;: &quot;Irms&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;111&quot;, &quot;evaluated_value&quot;: 111}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;DC_Copper_Lossef&quot;, &quot;DC_Copper_Lossend&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;operating&quot;, &quot;summary&quot;: &quot;Operating-point input, limit, or derived electrical quantity.&quot;}}, {&quot;index&quot;: 114, &quot;name&quot;: &quot;Equation parameters: kVA_Ratio&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;2.1323&quot;, &quot;equation_name&quot;: &quot;kVA_Ratio&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.1323&quot;, &quot;evaluated_value&quot;: 2.1323, &quot;equation&quot;: {&quot;name&quot;: &quot;kVA_Ratio&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;2.1323&quot;, &quot;evaluated_value&quot;: 2.1323}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;performance&quot;, &quot;summary&quot;: &quot;Derived performance, constraint, or objective quantity.&quot;}}, {&quot;index&quot;: 115, &quot;name&quot;: &quot;Equation parameters: kVA_Cost&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;260.43&quot;, &quot;equation_name&quot;: &quot;kVA_Cost&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;260.43&quot;, &quot;evaluated_value&quot;: 260.43, &quot;equation&quot;: {&quot;name&quot;: &quot;kVA_Cost&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;260.43&quot;, &quot;evaluated_value&quot;: 260.43}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;performance&quot;, &quot;summary&quot;: &quot;Derived performance, constraint, or objective quantity.&quot;}}, {&quot;index&quot;: 116, &quot;name&quot;: &quot;Equation parameters: objT&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;67.87&quot;, &quot;equation_name&quot;: &quot;objT&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;67.87&quot;, &quot;evaluated_value&quot;: 67.87, &quot;equation&quot;: {&quot;name&quot;: &quot;objT&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;67.87&quot;, &quot;evaluated_value&quot;: 67.87}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;performance&quot;, &quot;summary&quot;: &quot;Derived performance, constraint, or objective quantity.&quot;}}, {&quot;index&quot;: 117, &quot;name&quot;: &quot;Equation parameters: IRange0&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0&quot;, &quot;equation_name&quot;: &quot;IRange0&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0&quot;, &quot;evaluated_value&quot;: 0, &quot;equation&quot;: {&quot;name&quot;: &quot;IRange0&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0&quot;, &quot;evaluated_value&quot;: 0}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 118, &quot;name&quot;: &quot;Equation parameters: IRange1&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;0&quot;, &quot;equation_name&quot;: &quot;IRange1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0&quot;, &quot;evaluated_value&quot;: 0, &quot;equation&quot;: {&quot;name&quot;: &quot;IRange1&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;0&quot;, &quot;evaluated_value&quot;: 0}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;derived&quot;, &quot;summary&quot;: &quot;Equation-defined parameter; inspect its relationships for dependencies.&quot;}}, {&quot;index&quot;: 119, &quot;name&quot;: &quot;Equation parameters: mesh_ratio&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;1&quot;, &quot;equation_name&quot;: &quot;mesh_ratio&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1&quot;, &quot;evaluated_value&quot;: 1, &quot;equation&quot;: {&quot;name&quot;: &quot;mesh_ratio&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1&quot;, &quot;evaluated_value&quot;: 1}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;simulation&quot;, &quot;summary&quot;: &quot;Simulation/discretization control or derived step quantity.&quot;}}, {&quot;index&quot;: 120, &quot;name&quot;: &quot;Equation parameters: Div_Period&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;1&quot;, &quot;equation_name&quot;: &quot;Div_Period&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1&quot;, &quot;evaluated_value&quot;: 1, &quot;equation&quot;: {&quot;name&quot;: &quot;Div_Period&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1&quot;, &quot;evaluated_value&quot;: 1}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Step&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;simulation&quot;, &quot;summary&quot;: &quot;Simulation/discretization control or derived step quantity.&quot;}}, {&quot;index&quot;: 121, &quot;name&quot;: &quot;Equation parameters: Step&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;Div/Div_Period*1.5+1&quot;, &quot;equation_name&quot;: &quot;Step&quot;, &quot;equation_error&quot;: &quot;KeyError: &#x27;&#x27;&quot;, &quot;equation&quot;: {&quot;name&quot;: &quot;Step&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;Div/Div_Period*1.5+1&quot;, &quot;evaluated_value&quot;: null}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Div&quot;, &quot;Div_Period&quot;], &quot;dependents&quot;: [], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;simulation&quot;, &quot;summary&quot;: &quot;Simulation/discretization control or derived step quantity.&quot;}}, {&quot;index&quot;: 122, &quot;name&quot;: &quot;Equation parameters: Div&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;60&quot;, &quot;equation_name&quot;: &quot;Div&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;60&quot;, &quot;evaluated_value&quot;: 60, &quot;equation&quot;: {&quot;name&quot;: &quot;Div&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;60&quot;, &quot;evaluated_value&quot;: 60}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Step&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;simulation&quot;, &quot;summary&quot;: &quot;Simulation/discretization control or derived step quantity.&quot;}}, {&quot;index&quot;: 123, &quot;name&quot;: &quot;Equation parameters: Curesistivity_Eff&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;1.7852e-08*(1+(Tem_Eff_Winding-20)*Cu_Tem_Cof)&quot;, &quot;equation_name&quot;: &quot;Curesistivity_Eff&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1.7852e-08*(1+(Tem_Eff_Winding-20)*Cu_Tem_Cof)&quot;, &quot;evaluated_value&quot;: 2.3421824e-08, &quot;equation&quot;: {&quot;name&quot;: &quot;Curesistivity_Eff&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1.7852e-08*(1+(Tem_Eff_Winding-20)*Cu_Tem_Cof)&quot;, &quot;evaluated_value&quot;: 2.3421824e-08}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Cu_Tem_Cof&quot;, &quot;Tem_Eff_Winding&quot;], &quot;dependents&quot;: [&quot;DC_Copper_Lossef&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;material&quot;, &quot;summary&quot;: &quot;Material or temperature-dependent property.&quot;}}, {&quot;index&quot;: 124, &quot;name&quot;: &quot;Equation parameters: Curesistivity_End&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;1.7852e-08*(1+(Tem_End_Winding-20)*Cu_Tem_Cof)&quot;, &quot;equation_name&quot;: &quot;Curesistivity_End&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1.7852e-08*(1+(Tem_End_Winding-20)*Cu_Tem_Cof)&quot;, &quot;evaluated_value&quot;: 2.3421824e-08, &quot;equation&quot;: {&quot;name&quot;: &quot;Curesistivity_End&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;1.7852e-08*(1+(Tem_End_Winding-20)*Cu_Tem_Cof)&quot;, &quot;evaluated_value&quot;: 2.3421824e-08}, &quot;relationships&quot;: {&quot;references&quot;: [&quot;Cu_Tem_Cof&quot;, &quot;Tem_End_Winding&quot;], &quot;dependents&quot;: [&quot;DC_Copper_Lossend&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;material&quot;, &quot;summary&quot;: &quot;Material or temperature-dependent property.&quot;}}, {&quot;index&quot;: 125, &quot;name&quot;: &quot;Equation parameters: Tem_Eff_Winding&quot;, &quot;type&quot;: &quot;Equation&quot;, &quot;value&quot;: &quot;100&quot;, &quot;equation_name&quot;: &quot;Tem_Eff_Winding&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;100&quot;, &quot;evaluated_value&quot;: 100, &quot;equation&quot;: {&quot;name&quot;: &quot;Tem_Eff_Winding&quot;, &quot;display_name&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;expression&quot;: &quot;100&quot;, &quot;evaluated_value&quot;: 100}, &quot;relationships&quot;: {&quot;references&quot;: [], &quot;dependents&quot;: [&quot;Curesistivity_Eff&quot;], &quot;related_parameters&quot;: [], &quot;basis&quot;: &quot;Equation expression token analysis&quot;}, &quot;inferred_purpose&quot;: {&quot;category&quot;: &quot;material&quot;, &quot;summary&quot;: &quot;Material or temperature-dependent property.&quot;}}];
+      const search = root.querySelector(&#x27;#jmag-inventory-search&#x27;);
+      const category = root.querySelector(&#x27;#jmag-inventory-category&#x27;);
+      const rows = root.querySelector(&#x27;#jmag-inventory-rows&#x27;);
+      const count = root.querySelector(&#x27;#jmag-inventory-count&#x27;);
+      const detail = root.querySelector(&#x27;#jmag-inventory-detail&#x27;);
+      const esc = (value) =&gt; String(value ?? &#x27;&#x27;).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g, char =&gt; ({&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;,&quot;&#x27;&quot;:&#x27;&amp;#39;&#x27;}[char]));
+      [...new Set(records.map(record =&gt; record.inferred_purpose?.category || &#x27;input&#x27;))].sort().forEach(value =&gt; {
+        const option = document.createElement(&#x27;option&#x27;); option.value = value; option.textContent = value; category.appendChild(option);
+      });
+      const filtered = () =&gt; {
+        const needle = search.value.toLowerCase();
+        return records.filter(record =&gt; {
+          const relationship = record.relationships || {};
+          const text = [record.name, record.type, record.value, record.equation?.expression, record.inferred_purpose?.summary, ...(relationship.references || []), ...(relationship.dependents || [])].join(&#x27; &#x27;).toLowerCase();
+          return (!needle || text.includes(needle)) &amp;&amp; (!category.value || record.inferred_purpose?.category === category.value);
+        });
+      };
+      const showDetail = record =&gt; {
+        const relation = record.relationships || {};
+        const equation = record.equation || {};
+        detail.innerHTML = `&lt;strong&gt;${esc(record.name)}&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;muted&quot;&gt;${esc(record.inferred_purpose?.category || &#x27;input&#x27;)} · inferred purpose&lt;/span&gt;&lt;p&gt;${esc(record.inferred_purpose?.summary || &#x27;&#x27;)}&lt;/p&gt;&lt;div&gt;&lt;strong&gt;Expression:&lt;/strong&gt; &lt;code&gt;${esc(equation.expression || record.value)}&lt;/code&gt;&lt;/div&gt;&lt;div&gt;&lt;strong&gt;References:&lt;/strong&gt; ${esc((relation.references || []).join(&#x27;, &#x27;) || &#x27;none&#x27;)}&lt;/div&gt;&lt;div&gt;&lt;strong&gt;Dependents:&lt;/strong&gt; ${esc((relation.dependents || []).join(&#x27;, &#x27;) || &#x27;none&#x27;)}&lt;/div&gt;&lt;div&gt;&lt;strong&gt;Relationship basis:&lt;/strong&gt; ${esc(relation.basis || &#x27;none&#x27;)}&lt;/div&gt;`;
+      };
+      const render = () =&gt; {
+        const visible = filtered(); rows.innerHTML = &#x27;&#x27;; count.textContent = `${visible.length} / ${records.length} parameters`;
+        visible.forEach(record =&gt; {
+          const relation = record.relationships || {};
+          const tr = document.createElement(&#x27;tr&#x27;);
+          tr.innerHTML = `&lt;td&gt;${esc(record.index)}&lt;/td&gt;&lt;td&gt;&lt;code&gt;${esc(record.name)}&lt;/code&gt;&lt;/td&gt;&lt;td&gt;${esc(record.type)}&lt;/td&gt;&lt;td&gt;&lt;code&gt;${esc(record.equation?.expression || record.value)}&lt;/code&gt;&lt;/td&gt;&lt;td&gt;${esc(record.inferred_purpose?.category || &#x27;input&#x27;)}&lt;br&gt;&lt;span class=&quot;muted&quot;&gt;${esc(record.inferred_purpose?.summary || &#x27;&#x27;)}&lt;/span&gt;&lt;/td&gt;&lt;td&gt;→ ${esc((relation.references || []).join(&#x27;, &#x27;) || &#x27;—&#x27;)}&lt;br&gt;← ${esc((relation.dependents || []).join(&#x27;, &#x27;) || &#x27;—&#x27;)}&lt;/td&gt;`;
+          tr.addEventListener(&#x27;click&#x27;, () =&gt; { rows.querySelectorAll(&#x27;tr&#x27;).forEach(row =&gt; row.removeAttribute(&#x27;data-selected&#x27;)); tr.dataset.selected = &#x27;true&#x27;; showDetail(record); });
+          rows.appendChild(tr);
+        });
+      };
+      search.addEventListener(&#x27;input&#x27;, render); category.addEventListener(&#x27;change&#x27;, render); render();
+    })();
+  &lt;/script&gt;
+&lt;/section&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>

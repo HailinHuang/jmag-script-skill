@@ -1,0 +1,32 @@
+{
+  "id": "study.run_cases",
+  "state": "verified",
+  "function": "run_cases",
+  "signature": "run_cases(context: JMAGContext, cases: int | Iterable[int] | None=None, clear_results: bool=True, *, apply_cad_parameters: bool=False)",
+  "source": "src\\jmag_functions\\study.py",
+  "source_sha256": "7a071835dbadcb476dcfa211792a68109f1b95cafefa27c4fe553d91f675120f",
+  "dependencies": ["JMAGContext", "_normalize_cases"],
+  "jmag_methods": ["ApplyAllCasesCadParameters", "DeleteResult", "GetCurrentCase", "SetCurrentCase", "Run", "RunAllCases"],
+  "help_sources": [
+    "Designer/classStudy.html#ad2a03aebd6773834a7406882e098a499",
+    "Designer/classStudy.html#a3c457aa782c0c586b686899ab6091613",
+    "Designer/classStudy.html#aed8e91f09c2c95316dfcf669814f42be",
+    "Designer/classStudy.html#a766c45975a0bd2baa674acd9a8518325",
+    "Designer/classStudy.html#ac1ca69ebfceadc30f61e63f9924fc1d5",
+    "Designer/classStudy.html#a06227e245dd323da12a45d34c931e114"
+  ],
+  "global_dependencies": [],
+  "hardcoded_paths": [],
+  "project_constants": [],
+  "test_evidence": [
+    {"phase": "RED", "passed": false, "test": "FunctionTests.test_run_subset_and_restore_current_case", "observation": "unexpected apply_cad_parameters keyword before implementation"},
+    {"phase": "GREEN", "passed": true, "test": "FunctionTests.test_run_subset_and_restore_current_case"},
+    {"phase": "GREEN", "passed": true, "test": "OrchestrationTests.test_sets_runs_and_reads_only_requested_one_based_cases"}
+  ],
+  "run_evidence": [
+    "C:/JMAG_Models/TestModel1_reuse_functions_20260715_steps12/run_report.json: applied CAD parameters, cleared copy results, ran case 1, restored case"
+  ],
+  "jmag_versions": ["25.1"],
+  "similarity": ["orchestration.evaluate_cases"],
+  "target": {"module": "study.py", "symbol": "run_cases"}
+}

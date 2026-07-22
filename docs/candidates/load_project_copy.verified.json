@@ -1,0 +1,31 @@
+{
+  "id": "project.load_project_copy",
+  "state": "verified",
+  "function": "load_project_copy",
+  "signature": "load_project_copy(source: str | Path, target: str | Path, *, options: list[str] | None=None)",
+  "source": "src\\jmag_functions\\project.py",
+  "source_sha256": "6c7e7ab7fefc65999bf913bd76e2c13980764511da20cb25e64bef66b80d95b0",
+  "dependencies": ["LoadedProject", "Path"],
+  "jmag_methods": ["CreateApplication", "Load", "SaveAs", "Quit"],
+  "help_sources": [
+    "Designer/classApplication.html#af72d1bec02cac3c005fe554aa258b8d9",
+    "Designer/classApplication.html#aec8db8d7e6949bc5a777e5f8e2e505aa",
+    "Designer/classApplication.html#aa8e1475c94cdb879e46ec9aca3627fe7",
+    "binding:jmag.designer.designer.CreateApplication in installed JMAG 25.1 wrapper"
+  ],
+  "global_dependencies": [],
+  "hardcoded_paths": [],
+  "project_constants": [],
+  "test_evidence": [
+    {"phase": "RED", "passed": false, "test": "tests.unit.test_reuse_functions", "observation": "ModuleNotFoundError before project.py existed"},
+    {"phase": "GREEN", "passed": true, "test": "ReuseFunctionTests.test_load_project_copy_never_overwrites_and_owns_created_app"},
+    {"phase": "GREEN", "passed": true, "test": "ReuseFunctionTests.test_project_copy_closes_owned_app_on_failure"},
+    {"phase": "GREEN", "passed": true, "test": "ReuseFunctionTests.test_project_copy_validates_source_target_and_parent_before_launch"}
+  ],
+  "run_evidence": [
+    "C:/JMAG_Models/TestModel1_reuse_functions_20260715_steps12/run_report.json: loaded source, saved protected copy, and preserved source timestamp"
+  ],
+  "jmag_versions": ["25.1"],
+  "similarity": [],
+  "target": {"module": "project.py", "symbol": "load_project_copy"}
+}

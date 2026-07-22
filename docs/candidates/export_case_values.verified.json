@@ -1,0 +1,22 @@
+{
+  "id": "exports.export_case_values",
+  "state": "verified",
+  "function": "export_case_values",
+  "signature": "export_case_values(context: JMAGContext, path: str | Path, *, overwrite: bool=False)",
+  "source": "src\\jmag_functions\\exports.py",
+  "source_sha256": "7ebee7910802c93d484a2d4a6375ec5e9d76b07a829de828d0976422836e4485",
+  "dependencies": ["JMAGContext"],
+  "jmag_methods": ["ExportCaseValueData"],
+  "help_sources": ["Designer/classStudy.html#a06af00b13982b7b61595e846ff51ac5d"],
+  "global_dependencies": ["_TABLE_SUFFIXES"],
+  "hardcoded_paths": [],
+  "project_constants": [],
+  "test_evidence": [
+    {"phase": "RED", "passed": false, "test": "tests.unit.test_reuse_functions", "observation": "ModuleNotFoundError before exports.py existed"},
+    {"phase": "GREEN", "passed": true, "test": "ReuseFunctionTests.test_exports_are_explicit_and_reject_overwrite_or_bad_axis"}
+  ],
+  "run_evidence": ["C:/JMAG_Models/TestModel1_reuse_functions_20260715_steps12/case_values.csv"],
+  "jmag_versions": ["25.1"],
+  "similarity": ["results.get_value", "results.get_values"],
+  "target": {"module": "exports.py", "symbol": "export_case_values"}
+}
