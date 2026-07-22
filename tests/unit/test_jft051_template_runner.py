@@ -24,7 +24,7 @@ class Jft051TemplateRunnerTests(unittest.TestCase):
         with patch.object(runner, "JMAG_ROOT", Path("C:/JMAG-Designer25.1")):
             with patch.object(sys, "path", []):
                 runner.configure_jmag_runtime()
-                self.assertEqual(sys.path, ["C:\\JMAG-Designer25.1"])
+                self.assertEqual(sys.path, [str(Path("C:/JMAG-Designer25.1"))])
 
     def test_sector_adapter_uses_the_geometry_editor_default_document(self):
         runner = _load_runner()

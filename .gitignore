@@ -10,3 +10,13 @@ dist/
 .claude/.rem-state.json
 .claude/rules/MEMORY.md
 .claude/memory/**/_meta.json
+
+# Local JMAG models and result bundles
+*.jproj
+*.jfiles/
+*.jplot
+*.jmdl
+
+# Generated local runs
+artifacts/
+tmp/

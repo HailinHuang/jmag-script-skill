@@ -63,7 +63,7 @@ class GeometryTemplateWorkflowTests(unittest.TestCase):
     def test_build_creates_new_run_manifest_and_refuses_existing_target(self):
         spec = GeometryTemplateSpec(template_id="jft051_sector")
         geometry = FakeGeometry()
-        with tempfile.TemporaryDirectory(dir=Path.cwd() / "tmp") as directory:
+        with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             workflow = GeometryTemplateWorkflow(spec, root, run_id="20260722_120000")
             run = workflow.build(geometry)
@@ -83,7 +83,7 @@ class GeometryTemplateWorkflowTests(unittest.TestCase):
     def test_insert_sets_requested_values_and_verifies_them(self):
         spec = GeometryTemplateSpec(template_id="jft051_sector")
         geometry = FakeGeometry()
-        with tempfile.TemporaryDirectory(dir=Path.cwd() / "tmp") as directory:
+        with tempfile.TemporaryDirectory() as directory:
             workflow = GeometryTemplateWorkflow(spec, Path(directory), run_id="run")
             workflow.build(geometry)
             workflow.mark_registration_observed("Custom Geometry\\Codex\\jft051_sector")
@@ -107,7 +107,7 @@ class GeometryTemplateWorkflowTests(unittest.TestCase):
 
     def test_registration_rejects_a_library_key_outside_the_template_namespace(self):
         geometry = FakeGeometry()
-        with tempfile.TemporaryDirectory(dir=Path.cwd() / "tmp") as directory:
+        with tempfile.TemporaryDirectory() as directory:
             workflow = GeometryTemplateWorkflow(
                 GeometryTemplateSpec(template_id="jft051_sector"), Path(directory), run_id="run"
             )
