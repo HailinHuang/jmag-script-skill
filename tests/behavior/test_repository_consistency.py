@@ -1,64 +1,82 @@
+from __future__ import annotations
+
+import importlib
 import json
-import re
 import unittest
 from pathlib import Path
 
+from jmag_functions import __all__ as public_exports
 from jmag_skill.cli import build_parser
 
 
 ROOT = Path(__file__).parents[2]
+COMMANDS = {"search", "help", "inspect", "promote", "sync", "rollback", "verify", "build-index"}
+PLANNED_PATHS = (
+    "src/jmag_skill/executor",
+    "src/jmag_skill/offline",
+    "src/jmag_skill/frontend",
+    "examples",
+)
+EXPECTED_CATALOG_IDS = {
+    "session.context",
+    "results.get_value",
+    "results.get_values",
+    "design_table.set_parameter",
+    "design_table.set_parameters",
+    "study.run_cases",
+}
 
 
 class RepositoryConsistencyTests(unittest.TestCase):
-    def test_checkpoint_documents_exist_and_describe_current_boundaries(self):
-        current_status = (ROOT / "docs/current_status.md").read_text(encoding="utf-8")
-        implementation_plan = (ROOT / "docs/implementation_plan.md").read_text(
-            encoding="utf-8"
-        )
+    def test_cli_command_set_is_exact(self):
+        parser = build_parser()
+        action = next(item for item in parser._actions if item.dest == "command")
+        self.assertEqual(set(action.choices), COMMANDS)
 
-        for text in (current_status, implementation_plan):
-            self.assertIn("offline executor", text.lower())
-            self.assertIn("mock-only", text.lower())
-            self.assertIn("inspect-jmdl", text)
-            self.assertIn("geometry live vertical slice", text.lower())
+    def test_missing_paths_and_docs_are_explicitly_planned(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8").lower()
+        build_plan = (ROOT / "docs/JMAG_CAPABILITY_BUILD_PLAN.md").read_text(encoding="utf-8").lower()
+        frontend = (ROOT / "docs/FRONTEND_USAGE.md").read_text(encoding="utf-8").lower()
+        for path in PLANNED_PATHS:
+            self.assertFalse((ROOT / path).exists(), path)
+        for term in ("designspec executor", "offline workflow", "pyside6 design frontend", "v-ipm reference workflow", "inspect-jmdl"):
+            self.assertIn("planned", readme)
+            self.assertIn(term, readme)
+        self.assertIn("planned", build_plan)
+        self.assertIn("not present", build_plan)
+        self.assertIn("planned", frontend)
 
-    def test_readme_uses_catalog_as_status_authority_without_fixed_count(self):
-        readme = (ROOT / "README.md").read_text(encoding="utf-8")
-        catalog = json.loads(
-            (ROOT / "references/function-catalog.json").read_text(encoding="utf-8")
-        )
+    def test_runtime_frontend_path_exists(self):
+        self.assertTrue((ROOT / "jmag_user_py/jmag_runtime_frontend.py").is_file())
 
-        self.assertIn("references/function-catalog.json", readme)
-        self.assertNotRegex(readme, r"contains (?:eleven|\d+) `verified`")
-        self.assertIn("inspect-jmdl", readme)
-        self.assertIn("not implemented", readme.lower())
+    def test_catalog_is_the_original_verified_set_without_stable_entries(self):
+        catalog = json.loads((ROOT / "references/function-catalog.json").read_text(encoding="utf-8"))
+        self.assertEqual({item["id"] for item in catalog["functions"]}, EXPECTED_CATALOG_IDS)
         self.assertEqual({item["status"] for item in catalog["functions"]}, {"verified"})
+        self.assertNotIn("stable", {item["status"] for item in catalog["functions"]})
+        for entry in catalog["functions"]:
+            module = importlib.import_module(f"jmag_functions.{Path(entry['module']).stem}")
+            self.assertTrue(hasattr(module, entry["symbol"]))
 
-    def test_lifecycle_document_matches_catalog_lifecycle(self):
-        lifecycle = (ROOT / "docs/JMAG_PROJECT_LIFECYCLE.md").read_text(
-            encoding="utf-8"
-        )
+    def test_public_exports_are_separate_from_capability_status(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8").lower()
+        self.assertGreater(len(public_exports), 6)
+        self.assertIn("public export is not automatically", readme)
 
-        self.assertIn("references/function-catalog.json", lifecycle)
-        self.assertIn("verified", lifecycle)
-        self.assertIn("stable", lifecycle)
-        self.assertNotIn("functions remain observed candidates", lifecycle.lower())
+    def test_package_discovery_and_entry_point_are_preserved(self):
+        pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+        self.assertIn('package-dir = {"" = "src"}', pyproject)
+        self.assertIn('where = ["src"]', pyproject)
+        self.assertIn('jmag-skill = "jmag_skill.cli:main"', pyproject)
 
-    def test_cli_and_mock_boundaries_are_explicit(self):
-        help_text = build_parser().format_help()
-        mock_adapter_help = build_parser().parse_args(
-            ["execute-design", "examples/design_specs/design_spec.yaml"]
-        )
-
-        self.assertIn("execute-design", help_text)
-        self.assertNotIn("inspect-jmdl", help_text)
-        self.assertEqual(mock_adapter_help.adapter, "mock")
-        self.assertIn(
-            "mock_only",
-            (ROOT / "src/jmag_skill/executor/adapters/mock_jmag.py")
-            .read_text(encoding="utf-8")
-            .lower(),
-        )
+    def test_maintained_docs_and_ignore_rules_match_repository_truth(self):
+        docs = [ROOT / "README.md", ROOT / "SKILL.md", ROOT / "docs/current_status.md"]
+        for document in docs:
+            text = document.read_text(encoding="utf-8")
+            self.assertIn("JMAG Designer 25.1", text)
+        ignored = (ROOT / ".gitignore").read_text(encoding="utf-8")
+        for pattern in ("*.jproj", "*.jfiles/", "*.jplot", "*.jmdl", "artifacts/", "tmp/"):
+            self.assertIn(pattern, ignored)
 
 
 if __name__ == "__main__":

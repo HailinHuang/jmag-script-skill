@@ -1,5 +1,6 @@
 import sys
 import json
+import tomllib
 import types
 import unittest
 from pathlib import Path
@@ -149,8 +150,15 @@ class ReuseFunctionTests(unittest.TestCase):
         catalog = json.loads(
             Path("references/function-catalog.json").read_text(encoding="utf-8")
         )
+        pyproject = tomllib.loads(Path("pyproject.toml").read_text(encoding="utf-8"))
         self.assertEqual(
-            {function_version, skill_version, cli_version, catalog["library_version"]},
+            {
+                function_version,
+                skill_version,
+                cli_version,
+                catalog["library_version"],
+                pyproject["project"]["version"],
+            },
             {"0.3.0"},
         )
 

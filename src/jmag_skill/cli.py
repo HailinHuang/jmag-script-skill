@@ -8,6 +8,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from . import __version__
 from .help_index import build_help_index
 from .retrieval import HelpIndex, search_catalog, search_knowledge
 
@@ -15,7 +16,6 @@ from .retrieval import HelpIndex, search_catalog, search_knowledge
 ROOT = Path(__file__).resolve().parents[2]
 REFERENCES = ROOT / "references"
 DEFAULT_HELP = Path(r"C:\Program Files\JMAG-Designer25.1\Help\en\Script")
-__version__ = "0.1.0"
 
 
 def _json(path: Path):

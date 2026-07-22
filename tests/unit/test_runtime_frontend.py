@@ -7,7 +7,7 @@ import sys
 import unittest
 
 from jmag_functions.runtime import OperationResult, RuntimeSnapshot, RuntimeTarget
-from jmag_runtime_frontend import (
+from jmag_user_py.jmag_runtime_frontend import (
     RuntimeFrontendApp,
     RuntimeFrontendModel,
     format_runtime_target,
@@ -215,12 +215,12 @@ class RuntimeFrontendEntrypointTests(unittest.TestCase):
         root = Path(__file__).parents[2]
         env = {key: value for key, value in os.environ.items() if key != "PYTHONPATH"}
         completed = subprocess.run(
-            [sys.executable, str(root / "jmag_runtime_frontend.py"), "--help"],
+            [sys.executable, str(root / "jmag_user_py" / "jmag_runtime_frontend.py"), "--help"],
             cwd=root,
             capture_output=True,
             text=True,
             timeout=15,
-            env=env,
+            env={**env, "PYTHONPATH": str(root / "src")},
         )
         self.assertEqual(completed.returncode, 0, completed.stderr)
         self.assertIn("usage:", completed.stdout.lower())
