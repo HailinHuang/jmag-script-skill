@@ -1,6 +1,6 @@
-# Milestone 0 Repository Truth
+# Milestone 1 Existing-Project Lifecycle
 
-Base commit: `03bbbe73f112d56061604b51de039f0657826dd7`
+Base commit: `9ce2f91c304b467fe6217accd5ee4db10494e8b0`
 Runtime: JMAG Designer 25.1
 
 ## Present in this tree
@@ -9,9 +9,9 @@ Runtime: JMAG Designer 25.1
 - CLI commands: `search`, `help`, `inspect`, `promote`, `sync`, `rollback`,
   `verify`, and `build-index`.
 - Runtime frontend: `jmag_user_py/jmag_runtime_frontend.py`.
-- Geometry helpers in `src/jmag_functions/geometry_templates.py` and
-  `geometry_template_ui.py`. They are Python APIs, not a standalone stable
-  Agent capability.
+- `open_protected_project_copy` and `load_protected_project_copy` create a
+  filesystem-level protected `.jproj`/`.jfiles` copy, make ownership explicit,
+  and can write a JSON evidence manifest.
 - Capability catalog: six `verified` entries and zero `stable` entries.
 
 Public Python exports are a library surface; they do not infer catalog status.
@@ -22,7 +22,9 @@ Public Python exports are a library surface; they do not infer catalog status.
 execution, the offline workflow, a PySide6 design frontend, V-IPM workflow,
 and `inspect-jmdl` are absent.
 
-## M0 verification status
+## M1 scope boundary
 
-M0 aligns documentation, metadata, and offline tests to these boundaries. It
-does not run a JMAG Study, solver, Scheduler, or real smoke test.
+M1 does not create Geometry, update Design Table parameters, execute a Study,
+run a solver or Scheduler, delete results, or promote a capability. A real
+JMAG Designer 25.1 smoke remains pending explicit source, target, study, and
+launch/save authorization.

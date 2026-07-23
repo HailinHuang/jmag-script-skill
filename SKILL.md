@@ -22,6 +22,11 @@ JMAG behavior matters, a JMAG 25.1 smoke test. Never delete results, run
 studies, load projects, or change central capability unless the request
 authorizes it.
 
+For projects, use protected-copy functions. Never modify the source directly.
+Never run Studies or delete results. Copy `.jproj` plus `.jfiles` on
+the filesystem, never `SaveAs`; declare ownership explicitly, never from a
+global application. `open_jmag_fast` is legacy, not an M1 entry point.
+
 After a successful task, use `jmag-skill inspect` only to create an observed
 candidate. Report reuse value, project leakage, Help sources, and evidence;
 never promote automatically. Promotion requires verified evidence and explicit

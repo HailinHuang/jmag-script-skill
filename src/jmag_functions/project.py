@@ -4,6 +4,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import ctypes
+from datetime import datetime, timezone
+import hashlib
+import json
 from pathlib import Path
 import re
 import shutil
@@ -13,6 +16,128 @@ from typing import Any, Self
 
 
 DEFAULT_DESIGNER_EXECUTABLE = Path(r"C:\Program Files\JMAG-Designer25.1\designer.exe")
+JMAG_VERSION = "25.1"
+
+
+@dataclass(frozen=True)
+class ProjectBundle:
+    """A project file and its optional sibling result directory."""
+
+    project_path: Path
+    result_directory: Path
+    has_result_directory: bool
+
+
+class ProjectBundleCopyError(OSError):
+    """A filesystem copy failure whose partial-target cleanup was attempted."""
+
+    def __init__(self, message: str, *, cleanup_status: str) -> None:
+        super().__init__(message)
+        self.cleanup_status = cleanup_status
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _iso_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _validated_bundle_paths(source: str | Path, target: str | Path) -> tuple[Path, Path, Path, Path]:
+    source_path = Path(source).resolve()
+    target_path = Path(target).resolve()
+    source_files = source_path.with_suffix(".jfiles")
+    target_files = target_path.with_suffix(".jfiles")
+    if source_path.suffix.lower() != ".jproj":
+        raise ValueError("source must be a .jproj file")
+    if target_path.suffix.lower() != ".jproj":
+        raise ValueError("target must be a .jproj file")
+    if not source_path.is_file():
+        raise FileNotFoundError(source_path)
+    if source_path == target_path:
+        raise ValueError("target must not overwrite the source project")
+    if target_path.exists():
+        raise FileExistsError(target_path)
+    if target_files.exists():
+        raise FileExistsError(target_files)
+    if not target_path.parent.is_dir():
+        raise FileNotFoundError(target_path.parent)
+    if source_files.exists() and not source_files.is_dir():
+        raise ValueError(f"source sibling is not a directory: {source_files}")
+    return source_path, target_path, source_files, target_files
+
+
+def _prepare_manifest_path(manifest_path: str | Path | None) -> Path | None:
+    if manifest_path is None:
+        return None
+    path = Path(manifest_path).resolve()
+    if path.exists():
+        raise FileExistsError(path)
+    if not path.parent.is_dir():
+        raise FileNotFoundError(path.parent)
+    return path
+
+
+def _write_failed_manifest(
+    manifest_path: Path | None,
+    source: str | Path,
+    target: str | Path,
+    *,
+    visible: bool,
+    owns_application: bool,
+    error: Exception,
+) -> None:
+    """Write one safe failure record before a managed session can exist."""
+    if manifest_path is None:
+        return
+    source_path = Path(source).resolve()
+    target_path = Path(target).resolve()
+    source_files = source_path.with_suffix(".jfiles")
+    target_files = target_path.with_suffix(".jfiles")
+    cleanup_status = getattr(error, "cleanup_status", "not required")
+    record = {
+        "schema_version": 1,
+        "operation": "protected_project_copy",
+        "status": "failed",
+        "source_project": str(source_path),
+        "target_project": str(target_path),
+        "source_bundle_has_jfiles": source_files.is_dir(),
+        "target_bundle_has_jfiles": target_files.is_dir(),
+        "source_project_sha256_before": _sha256(source_path) if source_path.is_file() else None,
+        "source_project_sha256_after": _sha256(source_path) if source_path.is_file() else None,
+        "target_project_sha256": _sha256(target_path) if target_path.is_file() else None,
+        "jmag_version": JMAG_VERSION,
+        "visible": visible,
+        "study": None,
+        "owns_application": owns_application,
+        "started_at": _iso_now(),
+        "completed_at": _iso_now(),
+        "error": f"{type(error).__name__}: {error}; cleanup={cleanup_status}",
+    }
+    manifest_path.write_text(json.dumps(record, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def _cleanup_partial_target(project_path: Path, result_directory: Path) -> str:
+    errors: list[str] = []
+    if result_directory.exists():
+        try:
+            if result_directory.is_dir():
+                shutil.rmtree(result_directory)
+            else:
+                result_directory.unlink()
+        except OSError as error:
+            errors.append(f"{type(error).__name__}: {error}")
+    if project_path.exists():
+        try:
+            project_path.unlink()
+        except OSError as error:
+            errors.append(f"{type(error).__name__}: {error}")
+    return "completed" if not errors else "failed (" + "; ".join(errors) + ")"
 
 
 def _create_application(options: list[str]) -> Any:
@@ -133,34 +258,251 @@ class ProjectSession:
 
 
 @dataclass
-class LoadedProject:
-    """A loaded project whose application lifecycle is explicit."""
+class ManagedProjectSession:
+    """A protected-copy project session with explicit application ownership."""
 
     app: Any
-    source: Path
-    copy: Path
-    owns_application: bool = False
+    source_bundle: ProjectBundle
+    working_bundle: ProjectBundle
+    owns_application: bool
+    visible: bool
+    selected_study: str | int | None
+    manifest_path: Path | None
+    source_project_sha256_before: str
+    started_at: str
     _closed: bool = False
+    _status: str = "created"
+    _error: str | None = None
+
+    @property
+    def source(self) -> Path:
+        """Compatibility alias for the source project path."""
+        return self.source_bundle.project_path
+
+    @property
+    def copy(self) -> Path:
+        """Compatibility alias for the protected working project path."""
+        return self.working_bundle.project_path
+
+    def _manifest_record(self) -> dict[str, object]:
+        source_path = self.source_bundle.project_path
+        target_path = self.working_bundle.project_path
+        return {
+            "schema_version": 1,
+            "operation": "protected_project_copy",
+            "status": self._status,
+            "source_project": str(source_path),
+            "target_project": str(target_path),
+            "source_bundle_has_jfiles": self.source_bundle.has_result_directory,
+            "target_bundle_has_jfiles": self.working_bundle.result_directory.is_dir(),
+            "source_project_sha256_before": self.source_project_sha256_before,
+            "source_project_sha256_after": _sha256(source_path),
+            "target_project_sha256": _sha256(target_path) if target_path.is_file() else None,
+            "jmag_version": JMAG_VERSION,
+            "visible": self.visible,
+            "study": self.selected_study,
+            "owns_application": self.owns_application,
+            "started_at": self.started_at,
+            "completed_at": _iso_now() if self._closed else None,
+            "error": self._error,
+        }
+
+    def _write_manifest(self) -> None:
+        if self.manifest_path is None:
+            return
+        # The path was verified empty before the session started. Subsequent
+        # writes are controlled updates of this session's own audit record.
+        self.manifest_path.write_text(
+            json.dumps(self._manifest_record(), indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+
+    def _mark_failed(self, error: Exception) -> None:
+        self._status = "failed"
+        self._error = f"{type(error).__name__}: {error}"
+        self._write_manifest()
+
+    def _load_working_copy(self) -> None:
+        load_project(self.app, self.working_bundle.project_path, study=self.selected_study)
+        self._status = "loaded"
+        self._write_manifest()
+
+    def _ensure_open(self) -> None:
+        if self._closed:
+            raise RuntimeError("ManagedProjectSession is closed")
+
+    def select_study(self, study: str | int) -> Any:
+        self._ensure_open()
+        selected = select_study(self.app, study)
+        self.selected_study = study
+        self._write_manifest()
+        return selected
 
     def save(self) -> None:
-        if self._closed:
-            raise RuntimeError("LoadedProject is closed")
-        self.app.Save()
+        self._ensure_open()
+        try:
+            save_project(self.app)
+        except Exception as error:
+            self._mark_failed(error)
+            raise
+        self._status = "saved"
+        self._write_manifest()
 
-    def close(self) -> None:
+    def close(self, *, save: bool = False) -> None:
+        if not isinstance(save, bool):
+            raise TypeError("save must be a boolean")
         if self._closed:
             return
-        self._closed = True
+        if save:
+            self.save()
         if self.owns_application:
             self.app.Quit()
+        self._closed = True
+        if self._status != "failed":
+            self._status = "closed"
+        self._write_manifest()
 
     def __enter__(self) -> Self:
-        if self._closed:
-            raise RuntimeError("LoadedProject is closed")
+        self._ensure_open()
         return self
 
     def __exit__(self, exc_type: Any, exc: Any, traceback: Any) -> None:
         self.close()
+
+
+# Kept as an import-compatible name for callers of the former API.
+LoadedProject = ManagedProjectSession
+
+
+def _new_session(
+    app: Any,
+    source_path: Path,
+    target_bundle: ProjectBundle,
+    *,
+    owns_application: bool,
+    visible: bool,
+    study: str | int | None,
+    manifest_path: Path | None,
+) -> ManagedProjectSession:
+    source_files = source_path.with_suffix(".jfiles")
+    return ManagedProjectSession(
+        app=app,
+        source_bundle=ProjectBundle(source_path, source_files, source_files.is_dir()),
+        working_bundle=target_bundle,
+        owns_application=owns_application,
+        visible=visible,
+        selected_study=study,
+        manifest_path=manifest_path,
+        source_project_sha256_before=_sha256(source_path),
+        started_at=_iso_now(),
+    )
+
+
+def _open_protected_project_copy(
+    app: Any,
+    source_path: Path,
+    target_bundle: ProjectBundle,
+    *,
+    owns_application: bool,
+    visible: bool,
+    study: str | int | None,
+    manifest_path: Path | None,
+) -> ManagedProjectSession:
+    session = _new_session(
+        app,
+        source_path,
+        target_bundle,
+        owns_application=owns_application,
+        visible=visible,
+        study=study,
+        manifest_path=manifest_path,
+    )
+    session._write_manifest()
+    try:
+        session._load_working_copy()
+    except Exception as error:
+        session._mark_failed(error)
+        session._closed = True
+        session._write_manifest()
+        raise
+    return session
+
+
+def open_protected_project_copy(
+    source: str | Path,
+    target: str | Path,
+    *,
+    visible: bool = False,
+    study: str | int | None = None,
+    manifest_path: str | Path | None = None,
+) -> ManagedProjectSession:
+    """Create, load, and own a filesystem-level protected project copy."""
+    if not isinstance(visible, bool):
+        raise TypeError("visible must be a boolean")
+    prepared_manifest = _prepare_manifest_path(manifest_path)
+    try:
+        target_bundle = copy_project_bundle(source, target)
+    except Exception as error:
+        _write_failed_manifest(
+            prepared_manifest, source, target, visible=visible,
+            owns_application=True, error=error,
+        )
+        raise
+    source_path = Path(source).resolve()
+    try:
+        app = create_application(visible=visible)
+    except Exception as error:
+        _write_failed_manifest(
+            prepared_manifest, source, target, visible=visible,
+            owns_application=True, error=error,
+        )
+        raise
+    try:
+        return _open_protected_project_copy(
+            app,
+            source_path,
+            target_bundle,
+            owns_application=True,
+            visible=visible,
+            study=study,
+            manifest_path=prepared_manifest,
+        )
+    except Exception:
+        # A copy/validation failure occurs before a managed session exists.
+        # This application was explicitly created by this entry point.
+        app.Quit()
+        raise
+
+
+def load_protected_project_copy(
+    app: Any,
+    source: str | Path,
+    target: str | Path,
+    *,
+    study: str | int | None = None,
+    manifest_path: str | Path | None = None,
+) -> ManagedProjectSession:
+    """Load a protected copy into a caller-owned application without quitting it."""
+    if app is None:
+        raise ValueError("app must be an explicit JMAG application")
+    prepared_manifest = _prepare_manifest_path(manifest_path)
+    try:
+        target_bundle = copy_project_bundle(source, target)
+    except Exception as error:
+        _write_failed_manifest(
+            prepared_manifest, source, target, visible=False,
+            owns_application=False, error=error,
+        )
+        raise
+    return _open_protected_project_copy(
+        app,
+        Path(source).resolve(),
+        target_bundle,
+        owns_application=False,
+        visible=False,
+        study=study,
+        manifest_path=prepared_manifest,
+    )
 
 
 def load_project_copy(
@@ -168,37 +510,15 @@ def load_project_copy(
     target: str | Path,
     *,
     options: list[str] | None = None,
-) -> LoadedProject:
-    """Load ``source`` and immediately save it to a new protected copy.
+) -> ManagedProjectSession:
+    """Compatibility wrapper for :func:`open_protected_project_copy`.
 
-    Existing targets are rejected. The function always creates and owns a new
-    application so it cannot replace a caller's current project or discard
-    unsaved state in a borrowed application.
+    It no longer loads the source and calls ``SaveAs``.  The only copy
+    semantics are the canonical filesystem-level project-bundle copy.
     """
-    source_path = Path(source).resolve()
-    target_path = Path(target).resolve()
-    if not source_path.is_file():
-        raise FileNotFoundError(source_path)
-    if source_path == target_path:
-        raise ValueError("target must not overwrite the source project")
-    if target_path.exists():
-        raise FileExistsError(target_path)
-    if not target_path.parent.is_dir():
-        raise FileNotFoundError(target_path.parent)
-
-    app = create_application(visible=False) if options is None else _create_application(options)
-    try:
-        app.Load(str(source_path))
-        app.SaveAs(str(target_path))
-    except Exception:
-        app.Quit()
-        raise
-    return LoadedProject(
-        app=app,
-        source=source_path,
-        copy=target_path,
-        owns_application=True,
-    )
+    if options not in (None, [], ["-g"]):
+        raise ValueError("legacy options must be [] or ['-g']")
+    return open_protected_project_copy(source, target, visible=options == [])
 
 
 def open_project_visible(source: str | Path, *, study: str | int | None = None) -> Any:
@@ -262,22 +582,31 @@ def find_missing_result_files(project: str | Path) -> list[str]:
     ]
 
 
-def copy_project_bundle(source: str | Path, target: str | Path) -> Path:
-    """Copy a ``.jproj`` and sibling ``.jfiles`` directory without overwrite."""
-    source_path = Path(source).resolve()
-    target_path = Path(target).resolve()
-    target_files = target_path.with_suffix(".jfiles")
-    if not source_path.is_file():
-        raise FileNotFoundError(source_path)
-    if target_path.exists() or target_files.exists():
-        raise FileExistsError(f"copy target already exists: {target_path}")
-    if not target_path.parent.is_dir():
-        raise FileNotFoundError(target_path.parent)
-    shutil.copy2(source_path, target_path)
-    source_files = source_path.with_suffix(".jfiles")
-    if source_files.is_dir():
-        shutil.copytree(source_files, target_files)
-    return target_path
+def copy_project_bundle(source: str | Path, target: str | Path) -> ProjectBundle:
+    """Copy a JMAG project bundle through the filesystem, never ``SaveAs``.
+
+    Targets must be absent. If copying either bundle member fails, this
+    function removes only the target paths it just created and reports whether
+    that cleanup completed. The source bundle is never modified or removed.
+    """
+    source_path, target_path, source_files, target_files = _validated_bundle_paths(source, target)
+    has_result_directory = source_files.is_dir()
+    try:
+        shutil.copy2(source_path, target_path)
+        if has_result_directory:
+            shutil.copytree(source_files, target_files)
+    except Exception as error:
+        cleanup_status = _cleanup_partial_target(target_path, target_files)
+        raise ProjectBundleCopyError(
+            f"protected project bundle copy failed: {type(error).__name__}: {error}; "
+            f"partial-target cleanup={cleanup_status}",
+            cleanup_status=cleanup_status,
+        ) from error
+    return ProjectBundle(
+        project_path=target_path,
+        result_directory=target_files,
+        has_result_directory=has_result_directory,
+    )
 
 
 def dismiss_missing_result_dialog(timeout: float = 30.0) -> bool:

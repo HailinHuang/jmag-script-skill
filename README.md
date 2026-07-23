@@ -5,8 +5,8 @@ Designer 25.1. The Python library is the only source of functional truth.
 Codex and ChatGPT are its primary consumers; the CLI and GUI tools are calling
 surfaces, not independent capability sources.
 
-Current work focuses on protected project management, Geometry helpers, and
-explicit parameter and case automation.
+Milestone 1 provides protected existing-project management only. Geometry,
+parameter changes, and case execution are outside this API.
 
 ## CLI
 
@@ -48,3 +48,28 @@ six `verified` entries and zero `stable` entries in this commit.
 
 Use only JMAG Designer 25.1 for JMAG-bound work. No model, Study, solver, or
 Scheduler execution is implied by the offline documentation or test suite.
+
+## Canonical protected-copy workflow
+
+```python
+from pathlib import Path
+from jmag_functions import open_protected_project_copy
+
+source = Path(r"C:\models\source.jproj")
+target = Path(r"C:\runs\source_m1_copy.jproj")
+
+with open_protected_project_copy(
+    source,
+    target,
+    visible=False,
+    study="Main Study",
+    manifest_path=target.parent / "m1_manifest.json",
+) as session:
+    session.save()
+```
+
+The source is never saved, overwritten, or deleted. `target` and its sibling
+`.jfiles` directory must not exist; the source `.jfiles` directory, when
+present, is copied as part of the filesystem-level bundle. Closing does not save by
+default. This API supports JMAG Designer 25.1 only and does not create
+Geometry, change parameters, or execute cases.

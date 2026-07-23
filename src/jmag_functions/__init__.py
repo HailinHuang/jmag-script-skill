@@ -6,6 +6,9 @@ from .results import get_value, get_values
 from .study import run_cases
 from .project import (
     LoadedProject,
+    ManagedProjectSession,
+    ProjectBundle,
+    ProjectBundleCopyError,
     ProjectSession,
     close_application,
     copy_project_bundle,
@@ -15,6 +18,8 @@ from .project import (
     launch_project_in_visible_designer,
     load_project,
     load_project_copy,
+    load_protected_project_copy,
+    open_protected_project_copy,
     open_project,
     open_project_visible,
     open_jmag_fast,
@@ -39,8 +44,10 @@ from ._version import __version__
 
 __all__ = [
     "JMAGContext", "get_value", "get_values", "set_parameter",
-    "set_parameters", "run_cases", "LoadedProject", "ProjectSession", "create_application",
+    "set_parameters", "run_cases", "LoadedProject", "ManagedProjectSession", "ProjectBundle",
+    "ProjectBundleCopyError", "ProjectSession", "create_application",
     "load_project", "load_project_copy", "open_project", "open_project_visible",
+    "load_protected_project_copy", "open_protected_project_copy",
     "select_study",
     "launch_project_in_visible_designer", "save_project", "save_project_as",
     "close_application",

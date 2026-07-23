@@ -78,6 +78,25 @@ class RepositoryConsistencyTests(unittest.TestCase):
         for pattern in ("*.jproj", "*.jfiles/", "*.jplot", "*.jmdl", "artifacts/", "tmp/"):
             self.assertIn(pattern, ignored)
 
+    def test_m1_protected_copy_contract_is_public_and_scoped(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        lifecycle = (ROOT / "src/jmag_functions/PROJECT_LIFECYCLE.md").read_text(encoding="utf-8")
+        smoke = ROOT / "jmag_user_py/smoke/m1_existing_project_lifecycle_smoke.py"
+        for export in (
+            "ProjectBundle",
+            "ManagedProjectSession",
+            "copy_project_bundle",
+            "open_protected_project_copy",
+            "load_protected_project_copy",
+        ):
+            self.assertIn(export, public_exports)
+        self.assertIn("filesystem-level", readme)
+        self.assertIn("Geometry, change parameters, or execute cases", readme)
+        self.assertIn("Never modify the source directly", skill)
+        self.assertIn("legacy convenience", lifecycle)
+        self.assertTrue(smoke.is_file())
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,8 +2,9 @@
 
 1. Repository alignment: keep documented contracts, package metadata, catalog,
    CLI, and tests aligned with the committed tree.
-2. Existing-project opening and protected copies: build on the current project
-   lifecycle APIs with isolated evidence.
+2. Existing-project opening and protected copies: completed in M1 with
+   filesystem bundle copying, explicit ownership, manifests, and a prepared
+   smoke script. Real-runtime acceptance awaits explicit authorization.
 3. Geometry vertical slice: verify a small Geometry workflow before broader
    machine construction.
 4. Parameter updates and explicit case execution: extend evidence from the

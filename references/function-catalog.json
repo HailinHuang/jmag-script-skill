@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "library_version": "0.3.0",
+  "library_version": "0.4.0",
   "functions": [
     {"id": "session.context", "status": "verified", "module": "session.py", "symbol": "JMAGContext", "summary": "Bind an explicit application, model, study and design table", "dependencies": []},
     {"id": "results.get_value", "status": "verified", "module": "results.py", "symbol": "get_value", "summary": "Read one equation parameter or scalar response", "dependencies": ["session.context"]},

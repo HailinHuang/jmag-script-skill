@@ -7,11 +7,16 @@ or result settings.
 ## Primary entry point
 
 ```python
-from jmag_functions import ProjectSession
+from jmag_functions import open_protected_project_copy
 
-with ProjectSession.open(r"C:\JMAG_Models\TestModel1.jproj", visible=True) as project:
-    project.select_study("Main")
-    project.save_as(r"C:\JMAG_Models\TestModel1_copy.jproj")
+with open_protected_project_copy(
+    r"C:\JMAG_Models\TestModel1.jproj",
+    r"C:\JMAG_Models\TestModel1_copy.jproj",
+    visible=False,
+    study="Main",
+    manifest_path=r"C:\JMAG_Models\m1_manifest.json",
+) as project:
+    project.save()
 ```
 
 Leaving the `with` block closes JMAG without an implicit save. Use
@@ -28,14 +33,17 @@ Leaving the `with` block closes JMAG without an implicit save. Use
 | `save_project(app)` | Save the current project. |
 | `save_project_as(app, target, overwrite=False)` | Save to a new path; rejects overwrite by default. |
 | `close_application(app, save=False)` | Close JMAG; does not save unless requested. |
-| `load_project_copy(source, target, options=None)` | Create and own a protected project copy. |
+| `copy_project_bundle(source, target)` | Canonical filesystem copy of `.jproj` and sibling `.jfiles`. |
+| `open_protected_project_copy(source, target, ...)` | Copy first, then create and own an application that loads the target. |
+| `load_protected_project_copy(app, source, target, ...)` | Copy first, then load the target into an explicitly borrowed application. |
+| `load_project_copy(source, target, options=None)` | Compatibility wrapper around the canonical owned entry point. |
 | `launch_project_in_visible_designer(source)` | Launch the desktop executable directly. |
 | `find_missing_result_files(project)` | Preflight readable `.jplot` references and the sibling `.jfiles` directory. |
 | `open_jmag_fast(project, mode=...)` | Open visibly with result preflight, copy policy, and optional dialog confirmation. |
 
-## Fast open and missing-result handling
+## Legacy fast-open convenience API
 
-`open_jmag_fast` is the reusable implementation behind
+`open_jmag_fast` is a legacy convenience implementation behind
 `jmag_user_py/open_jmag_window.py`. It supports three explicit policies:
 
 ```python
@@ -66,11 +74,25 @@ never deleted unless `mode="copy-delete-original"` and
 `confirm_delete_original=True` are both supplied; if the dialog cannot be
 confirmed, deletion is aborted.
 
-## Ownership rules
+It is not an M1 protected-copy entry point. In particular, its
+`copy-delete-original` mode must never be used in an M1 workflow.
 
-- `ProjectSession` owns the application it opens and closes it exactly once.
+## Protected-copy and ownership rules
+
+- The canonical copy is a filesystem-level `.jproj` bundle copy, not
+  `Load(source)` followed by `SaveAs(target)`.
+- Sources and targets must be distinct `.jproj` paths; target `.jproj` and
+  target `.jfiles` paths must be absent. Copy failures clean up only target
+  paths created by the operation.
+- `open_protected_project_copy` owns the application it creates and closes it
+  exactly once, including after a load failure.
+- `load_protected_project_copy` borrows its explicit application and never
+  calls `Quit()`.
+- `ManagedProjectSession.close()` does not save by default;
+  `close(save=True)` saves the target before closing an owned application.
+- A requested manifest rejects an existing path and records absolute paths,
+  hashes, ownership, visibility, status, and errors.
 - `load_project` operates on a caller-owned application and never closes it.
-- `load_project_copy` owns its created application through `LoadedProject`.
 - Never use `save_project_as(..., overwrite=True)` unless replacing the target
   is intentional and explicitly authorized.
 

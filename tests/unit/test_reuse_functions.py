@@ -26,6 +26,7 @@ from jmag_functions.project import (
     open_project,
     open_project_visible,
     ProjectSession,
+    ProjectBundle,
     select_study,
     save_project,
     save_project_as,
@@ -159,7 +160,7 @@ class ReuseFunctionTests(unittest.TestCase):
                 catalog["library_version"],
                 pyproject["project"]["version"],
             },
-            {"0.3.0"},
+            {"0.4.0"},
         )
 
     def test_inventory_records_all_parameters_and_equation_metadata(self):
@@ -232,26 +233,24 @@ class ReuseFunctionTests(unittest.TestCase):
         module = types.SimpleNamespace(designer=designer_api)
         source = Path("C:/virtual/source.jproj")
         target = Path("C:/virtual/copy.jproj")
+        bundle = ProjectBundle(target.resolve(), target.with_suffix(".jfiles").resolve(), False)
         with (
+            patch("jmag_functions.project.copy_project_bundle", return_value=bundle),
+            patch("jmag_functions.project._sha256", return_value="hash"),
             patch.object(Path, "is_file", return_value=True),
-            patch.object(Path, "exists", return_value=False),
-            patch.object(Path, "is_dir", return_value=True),
-        ):
-            with patch.dict(
+            patch.dict(
                 sys.modules,
                 {"jmag": types.ModuleType("jmag"), "jmag.designer": module},
-            ):
-                project = load_project_copy(source, target)
+            ),
+        ):
+            project = load_project_copy(source, target)
         self.assertEqual(
-            self.app.events[:2],
-            [("load", str(source.resolve())), ("save_as", str(target.resolve()))],
+            self.app.events[:1],
+            [("load", str(target.resolve()))],
         )
         project.close()
         self.assertEqual(self.app.quit_count, 1)
-        with (
-            patch.object(Path, "is_file", return_value=True),
-            patch.object(Path, "exists", return_value=True),
-        ):
+        with patch("jmag_functions.project.copy_project_bundle", side_effect=FileExistsError(target)):
             with self.assertRaises(FileExistsError):
                 load_project_copy(source, target)
 
@@ -361,26 +360,27 @@ class ReuseFunctionTests(unittest.TestCase):
         source = Path("C:/virtual/source.jproj")
         target = Path("C:/virtual/copy.jproj")
         failing = App()
-        failing.SaveAs = lambda path: (_ for _ in ()).throw(RuntimeError("save failed"))
+        failing.Load = lambda path: (_ for _ in ()).throw(RuntimeError("load failed"))
         designer_api = types.SimpleNamespace(CreateApplication=lambda options: failing)
         module = types.SimpleNamespace(designer=designer_api)
+        bundle = ProjectBundle(target.resolve(), target.with_suffix(".jfiles").resolve(), False)
         with (
+            patch("jmag_functions.project.copy_project_bundle", return_value=bundle),
+            patch("jmag_functions.project._sha256", return_value="hash"),
             patch.object(Path, "is_file", return_value=True),
-            patch.object(Path, "exists", return_value=False),
-            patch.object(Path, "is_dir", return_value=True),
             patch.dict(
                 sys.modules,
                 {"jmag": types.ModuleType("jmag"), "jmag.designer": module},
             ),
         ):
-            with self.assertRaisesRegex(RuntimeError, "save failed"):
+            with self.assertRaisesRegex(RuntimeError, "load failed"):
                 load_project_copy(source, target)
         self.assertEqual(failing.quit_count, 1)
 
     def test_project_copy_validates_source_target_and_parent_before_launch(self):
         source = Path("C:/virtual/source.jproj")
         target = Path("C:/virtual/copy.jproj")
-        with patch.object(Path, "is_file", return_value=False):
+        with patch("jmag_functions.project.copy_project_bundle", side_effect=FileNotFoundError(source)):
             with self.assertRaises(FileNotFoundError):
                 load_project_copy(source, target)
 
